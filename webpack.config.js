@@ -75,4 +75,9 @@ module.exports = {
       NMS: JSON.stringify("nms"),
     }),
   ],
+  resolve: {
+    alias: {
+      Styles: path.resolve(__dirname, "src/scss"),
+    },
+  },
 };

@@ -1,8 +1,19 @@
 import React from "react";
-import styles from "./AppClient.module.scss";
+import { Switch, Route } from "react-router-dom";
+import Header from "../../containers/Header";
+import SMS from "../../pages/SMS";
+import NMS from "../../pages/NMS";
 
 const AppClient = () => {
-  return <div className={styles.app}>Hello World!</div>;
+  return (
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/sms" component={SMS} />
+        <Route path="/nms" component={NMS} />
+      </Switch>
+    </>
+  );
 };
 
 export default AppClient;
