@@ -1,9 +1,11 @@
 @import "Styles/variables.scss";
+
 .header {
   display: flex;
   padding: $common-padding;
+  background-color: var(--bg-component);
+  color: var(--font-contents);
   font-size: $common-font-size;
-  background-color: orange;
 }
 .tab {
   flex: 1;
@@ -12,10 +14,8 @@
   flex: 1;
 }
 .clock {
-  flex: .3;
+  flex: 0.3;
 }
 .mode {
-  flex: .3;
+  flex: 0.3;
 }
-
-

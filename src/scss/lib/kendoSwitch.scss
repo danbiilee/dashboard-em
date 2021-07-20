@@ -1,0 +1,36 @@
+// Switch - Header
+.k-switch {
+  width: 22px;
+  height: 12px;
+  .k-switch-container {
+    width: 22px;
+  }
+}
+.k-switch-handle {
+  width: 9px;
+  height: 9.5px;
+  top: -6px;
+}
+.k-switch-container,
+.k-switch-handle {
+  cursor: pointer;
+}
+.k-switch-on {
+  .k-switch-container {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  .k-switch-handle {
+    left: 9px;
+  }
+}
+.k-switch-off {
+  .k-switch-container {
+    background-color: var(--color-gray);
+    border-color: var(--color-gray);
+  }
+  .k-switch-handle {
+    left: -1px;
+    background-color: var(--color-white);
+  }
+}
