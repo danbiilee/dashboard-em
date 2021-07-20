@@ -1,0 +1,90 @@
+:root {
+  // Common
+  --color-primary: #2988e6;
+  --color-critical: #e84d3e;
+  --color-warning: #ed9352;
+  --color-attention: #f6cf66;
+  --color-white: #ffffff;
+  --color-navy: #1b2e68;
+  --color-gray: #babecc;
+
+  // Font
+  --font-contents: var(--color-navy);
+  --font-contents-bold: #062c5e;
+  --font-active: var(--color-primary);
+  --font-header: var(--color-navy);
+  --font-header-title: var(--color-navy);
+  --font-header-mode: var(--color-gray);
+  --font-component-title: var(--color-white);
+  --font-server-title: var(--color-navy); // SMS 서버명 타이틀
+  --font-memory-title: #191b20; // SMS 메모리 타이틀
+
+  // Background
+  --bg-container: #e0e3ed;
+  --bg-component: var(--color-white);
+  --bg-construction-inner: #f8f9fb; // 구성현황
+  --bg-construction-hex: #e7eaf0; // 구성현황 아이콘 육각형
+  --bg-server-header: #fafbfc; // 서버 운영현황 서버명 헤더
+  --bg-server-memory-header: var(--color-white); // 서버 운영현황 메모리명 헤더
+  --bg-server-memory-component: #f8f9fb; // 서버 운영현황 메모리 수치
+
+  // Border
+  --border-primary: var(
+    --color-gray
+  ); // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
+  --border-secondary: #d9ddea; // 컴포넌트, 이너 박스(총 장비수, 파일시스템top5...) 등 흐릿한 테두리
+  --border-active: var(--color-primary);
+
+  // Data Component
+  --label-bar-chart: var(--color-navy);
+  --label-line-chart: #575b5d;
+  --font-grid-header: var(--color-navy);
+  --font-grid-contnets: var(--color-navy);
+  --bg-grid-row-odd: #f8f9fb; // 그리드 홀수행 배경
+  --bg-grid-row-even: var(--color-white); // 그리드 헤더, 짝수행 배경
+  --bg-progressive: #e2e6ed;
+  --line-rx: #02bcd5; // 트래픽 현황 rx, tx 라인 2px
+  --line-tx: #506cf6;
+  --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
+  --area-tx: rgba(var(--line-tx), 0.3);
+}
+
+.theme-dark {
+  // Font
+  --font-contents: #b3b4b5;
+  --font-contents-bold: var(--color-white);
+  --font-active: var(--color-primary);
+  --font-header: #b3b4b5;
+  --font-header-title: var(--color-white);
+  --font-header-mode: #b3b4b5;
+  --font-component-title: var(--color-white);
+  --font-server-title: #e3e6e6; // SMS 서버명 타이틀
+  --font-memory-title: #b3b4b5; // SMS 메모리 타이틀
+
+  // Background
+  --bg-container: #080808;
+  --bg-component: #191919;
+  --bg-construction-inner: #191919; // 구성현황
+  --bg-construction-hex: #262626; // 구성현황 아이콘 육각형
+  --bg-server-header: #262626; // 서버 운영현황 서버명 헤더
+  --bg-server-memory-header: #1f1f1f; // 서버 운영현황 메모리명 헤더
+  --bg-server-memory-component: #1f1f1f; // 서버 운영현황 메모리 수치
+
+  // Border
+  --border-primary: #303030; // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
+  --border-secondary: #262626; // 컴포넌트, 이너 박스(총 장비수, 파일시스템top5...) 등 흐릿한 테두리
+  --border-active: var(--color-primary);
+
+  // Data Component
+  --label-bar-chart: #9a9b9b;
+  --label-line-chart: #9a9b9b;
+  --font-grid-header: #b3b4b5;
+  --font-grid-contnets: #e3e6e6;
+  --bg-grid-row-odd: #191919; // 그리드 홀수행 배경
+  --bg-grid-row-even: #262626; // 그리드 헤더, 짝수행 배경
+  --bg-progressive: #414142;
+  --line-rx: #43ffb7; // 트래픽 현황 rx, tx 라인 2px
+  --line-tx: #26b4ff;
+  --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
+  --area-tx: rgba(var(--line-tx), 0.3);
+}
