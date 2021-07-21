@@ -1,15 +1,17 @@
 // Switch - Header
 .k-switch {
   width: 22px;
-  height: 12px;
+  height: 13px;
+  margin-top: -2px;
   .k-switch-container {
+    display: flex;
+    align-items: center;
     width: 22px;
   }
 }
 .k-switch-handle {
   width: 9px;
-  height: 9.5px;
-  top: -6px;
+  height: 9px;
 }
 .k-switch-container,
 .k-switch-handle {
