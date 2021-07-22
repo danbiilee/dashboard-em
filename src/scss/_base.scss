@@ -16,7 +16,7 @@
 }
 
 html {
-  font-size: 65.5%
+  font-size: 65.5%;
 }
 
 body {
@@ -24,9 +24,12 @@ body {
   font-weight: bold;
   height: 100%;
 }
+
 div#root {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #ffffff;
+  min-width: 1200px;
+  background-color: var(--bg-container);
+  color: var(--font-contents);
 }

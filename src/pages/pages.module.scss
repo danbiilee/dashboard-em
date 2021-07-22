@@ -1,20 +1,30 @@
 @import "Styles/variables.scss";
+
 .side__container {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: skyblue;
+  padding: $container-padding;
+  margin-bottom: $inner-margin;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  border: 1px solid var(--border-secondary);
+  background-color: var(--bg-component);
 }
-.sms__center__container{
+
+.sms__center__container {
   height: 100%;
-  
+  padding: $container-padding;
 }
+
 .sms__center__items {
   display: flex;
   height: 50%;
 }
+
 .sms__center__item {
-  background-color: skyblue;
   flex: 1;
+  background-color: var(--bg-component);
   font-size: $common-font-size;
 }

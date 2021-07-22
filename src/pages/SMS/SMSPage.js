@@ -24,8 +24,8 @@ const SMSPage = () => {
           </div>
         </Top.Side>
         <Top.Center>
-          <Title name="서버운영현황" />
           <div className={styles.sms__center__container}>
+            <Title name="서버운영현황" />
             <div className={styles.sms__center__items}>
               <div className={styles.sms__center__item}>[0,0]</div>
               <div className={styles.sms__center__item}>[0,1]</div>
