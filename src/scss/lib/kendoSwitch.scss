@@ -1,8 +1,8 @@
 // Switch - Header
 .k-switch {
   width: 22px;
-  height: 13px;
-  margin-top: -2px;
+  height: 11px;
+  margin-top: -1px;
   .k-switch-container {
     display: flex;
     align-items: center;
@@ -10,8 +10,8 @@
   }
 }
 .k-switch-handle {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
 }
 .k-switch-container,
 .k-switch-handle {
@@ -23,7 +23,7 @@
     border-color: var(--color-primary);
   }
   .k-switch-handle {
-    left: 9px;
+    left: 10px;
   }
 }
 .k-switch-off {

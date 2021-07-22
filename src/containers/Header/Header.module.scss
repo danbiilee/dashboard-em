@@ -1,21 +1,61 @@
 @import "Styles/variables.scss";
 
 .header {
+  position: relative;
   display: flex;
-  padding: $common-padding;
+  height: $header-height;
+  margin: $side-margin;
+  margin-bottom: 0;
   background-color: var(--bg-component);
+  border: 1px solid var(--border-secondary);
+  color: var(--font-header);
+  font-size: $header-font-size;
+  line-height: $header-height;
+}
+
+.tab {
+  position: absolute;
+}
+
+.link {
+  display: inline-block;
+  padding: 0 $common-padding * 1.3;
+  height: $header-height;
+  text-decoration: none;
   color: var(--font-contents);
+}
+
+.link.selected {
+  color: var(--font-active);
+  border-bottom: 3px solid var(--border-active);
+}
+
+.logo {
+  width: 100%;
+  color: var(--font-header-title);
+  text-align: center;
+  font-size: $common-font-size * 2.1;
+}
+
+.utils {
+  position: absolute;
+  right: 0;
+  display: flex;
+}
+
+.clock {
+  padding: 0 $common-padding * 4.4;
+  border: 1px solid var(--border-secondary);
+  border-width: 0 1px;
+  letter-spacing: 1px;
+}
+
+.mode {
+  padding: 0 $common-padding * 2.2;
+  color: var(--font-header-mode);
   font-size: $common-font-size;
 }
-.tab {
-  flex: 1;
-}
-.logo {
-  flex: 1;
-}
-.clock {
-  flex: 0.3;
-}
-.mode {
-  flex: 0.3;
+
+.mode__text {
+  margin-left: $common-margin * 0.5;
 }
