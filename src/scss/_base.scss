@@ -33,3 +33,22 @@ div#root {
   background-color: var(--bg-container);
   color: var(--font-contents);
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--grid-scrollbar);
+  border-radius: 6px;
+
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--grid-scrollbar-hover);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg-grid-scrollbar) !important;
+}
+::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}

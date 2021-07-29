@@ -42,6 +42,9 @@
   --font-grid-contnets: var(--color-navy);
   --bg-grid-row-odd: #f8f9fb; // 그리드 홀수행 배경
   --bg-grid-row-even: var(--color-white); // 그리드 헤더, 짝수행 배경
+  --grid-scrollbar: var(--border-primary);//그리드 스크롤바 선택 default 색상
+  --grid-scrollbar-hover: var(--font-contents);//그리드 스크롤바 선택 hover 시 색상
+  --bg-grid-scrollbar: var(--bg-component);//그리드 스크롤바 track 색상
   --bg-progressive: #e2e6ed;
   --line-rx: #02bcd5; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #506cf6;
@@ -82,6 +85,9 @@
   --font-grid-contnets: #e3e6e6;
   --bg-grid-row-odd: #191919; // 그리드 홀수행 배경
   --bg-grid-row-even: #262626; // 그리드 헤더, 짝수행 배경
+  --grid-scrollbar: var(--border-primary);//그리드 스크롤바 선택 default 색상
+  --grid-scrollbar-hover: var(--font-contents);//그리드 스크롤바 선택 hover 시 색상
+  --bg-grid-scrollbar: var(--bg-component);//그리드 스크롤바 track 색상
   --bg-progressive: #414142;
   --line-rx: #43ffb7; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #26b4ff;
