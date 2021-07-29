@@ -1,0 +1,19 @@
+#rankGrid {
+  .k-grid-content.k-virtual-content{
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  .k-grid-header.k-grid-draggable-header {
+    border-color: var(--border-primary) !important;
+    padding: 0px !important;
+  }
+}
+td.no {
+  text-align: center;
+}
+td.server {
+  text-align: left;
+}
+td.utilization {
+  text-align: center;
+}
