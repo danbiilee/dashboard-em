@@ -12,6 +12,13 @@
   border: 1px solid var(--border-secondary);
   background-color: var(--bg-component);
 }
+.bottom__container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: $container-padding;
+  padding-bottom: $container-padding - 1rem;
+}
 
 .sms__center__container {
   height: 100%;
