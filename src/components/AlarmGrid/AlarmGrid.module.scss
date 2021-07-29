@@ -1,0 +1,55 @@
+@import "Styles/variables.scss";
+.AlarmGrid_wrapper {
+  max-height: 152px;
+  border-top: 1px solid var(--border-primary);
+}
+.AlarmGrid {
+  font-size: $common-font-size + 0.5rem;
+  background-color: transparent;
+  line-height: 1.3;
+  height: 100%;
+  border-width: 0px;
+  table {
+    height: 100%;
+    width: 100%;
+    thead {
+      text-align: center;
+      tr {
+        color: var(--font-grid-header);
+        th {
+          padding: 0 0px;
+          background-color: var(--bg-grid-row-even) !important;
+          border-width: 0 0 3px 3px;
+          border-color: var(--border-primary);
+          ::before {
+            color: var(--font-grid-header);
+          }
+        }
+      }
+    }
+    tbody {
+      background-color: var(--bg-component);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      tr {
+        color:  var(--font-contents) !important;
+        td {
+          padding: 0 0px;
+          border-width: 0 0 0 3px;
+          border-color: var(--border-primary);
+        }
+      }
+    }
+  }
+  li.k-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.img_wrapper {
+  text-align: center;
+}
+.severity_img {
+  margin-top: $common-margin - 0.4rem;
+}

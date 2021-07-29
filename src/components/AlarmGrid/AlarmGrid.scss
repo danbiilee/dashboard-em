@@ -1,0 +1,32 @@
+#alarmGrid {
+  .k-grid-header.k-grid-draggable-header {
+    border-color: var(--border-primary) !important;
+    padding: 0px !important;
+  }
+  .k-master-row {
+    background-color: var(--bg-grid-row-odd) !important;
+  }
+  .k-master-row.k-alt {
+    background-color: var(--bg-grid-row-even) !important;
+  }
+}
+td.time {
+  text-align: center;
+}
+td.alarmsevername {
+  text-align: left;
+}
+td.ip {
+  text-align: center;
+}
+td.resourcename {
+  text-align: left;
+}
+td.alarmname {
+  text-align: left;
+}
+td.detail {
+  text-align: left;
+}
+
+
