@@ -7,6 +7,8 @@ const THEME_LIGHT = "light";
 const THEME_DARK = "dark";
 
 const ThemeContext = createContext();
+const ThemeUpdateContext = createContext();
+
 const ThemeProvider = ({ children }) => {
   const storedTheme =
     window.localStorage.getItem(LOCAL_STORAGE_THEME_NAME) || THEME_LIGHT;
@@ -19,15 +21,20 @@ const ThemeProvider = ({ children }) => {
   }, [themeMode]);
 
   return (
-    <ThemeContext.Provider value={{ themeMode, setThemeMode }}>
-      {children}
+    <ThemeContext.Provider value={themeMode}>
+      <ThemeUpdateContext.Provider value={setThemeMode}>
+        {children}
+      </ThemeUpdateContext.Provider>
     </ThemeContext.Provider>
   );
 };
 
-const useTheme = () => {
-  const context = useContext(ThemeContext);
-  const { themeMode, setThemeMode } = context;
+function useTheme() {
+  return useContext(ThemeContext);
+}
+
+function useThemeToggle(themeMode) {
+  const setThemeMode = useContext(ThemeUpdateContext);
 
   const toggleTheme = () => {
     if (themeMode === THEME_LIGHT) {
@@ -40,10 +47,10 @@ const useTheme = () => {
     document.documentElement.classList.toggle(THEME_TOGGLE_CLASS_NAME);
   };
 
-  return [themeMode, toggleTheme];
-};
+  return toggleTheme;
+}
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider, useTheme, useThemeToggle };
 
 ThemeProvider.propTypes = {
   children: PropTypes.node,
