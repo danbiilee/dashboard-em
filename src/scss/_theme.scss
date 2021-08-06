@@ -29,9 +29,7 @@
   --bg-server-memory-component: #f8f9fb; // 서버 운영현황 메모리 수치
 
   // Border
-  --border-primary: var(
-    --color-gray
-  ); // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
+  --border-primary: var(--color-gray); // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
   --border-secondary: #d9ddea; // 컴포넌트, 이너 박스(총 장비수, 파일시스템top5...) 등 흐릿한 테두리
   --border-active: var(--color-primary);
 
@@ -42,10 +40,10 @@
   --font-grid-contnets: var(--color-navy);
   --bg-grid-row-odd: #f8f9fb; // 그리드 홀수행 배경
   --bg-grid-row-even: var(--color-white); // 그리드 헤더, 짝수행 배경
-  --grid-scrollbar: var(--border-primary);//그리드 스크롤바 선택 default 색상
-  --grid-scrollbar-hover: var(--font-contents);//그리드 스크롤바 선택 hover 시 색상
-  --bg-grid-scrollbar: var(--bg-component);//그리드 스크롤바 track 색상
-  --bg-progressive: #e2e6ed;
+  --grid-scrollbar: var(--border-primary); //그리드 스크롤바 선택 default 색상
+  --grid-scrollbar-hover: var(--font-contents); //그리드 스크롤바 선택 hover 시 색상
+  --bg-grid-scrollbar: var(--bg-component); //그리드 스크롤바 track 색상
+  --bg-progress: #e2e6ed;
   --line-rx: #02bcd5; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #506cf6;
   --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
@@ -85,10 +83,10 @@
   --font-grid-contnets: #e3e6e6;
   --bg-grid-row-odd: #191919; // 그리드 홀수행 배경
   --bg-grid-row-even: #262626; // 그리드 헤더, 짝수행 배경
-  --grid-scrollbar: var(--border-primary);//그리드 스크롤바 선택 default 색상
-  --grid-scrollbar-hover: var(--font-contents);//그리드 스크롤바 선택 hover 시 색상
-  --bg-grid-scrollbar: var(--bg-component);//그리드 스크롤바 track 색상
-  --bg-progressive: #414142;
+  --grid-scrollbar: var(--border-primary); //그리드 스크롤바 선택 default 색상
+  --grid-scrollbar-hover: var(--font-contents); //그리드 스크롤바 선택 hover 시 색상
+  --bg-grid-scrollbar: var(--bg-component); //그리드 스크롤바 track 색상
+  --bg-progress: #414142;
   --line-rx: #43ffb7; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #26b4ff;
   --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area

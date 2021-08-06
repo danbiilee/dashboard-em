@@ -1,6 +1,6 @@
 export const gridData = {
   fileSystemColumns: [
-    { field: "NO", title: "NO", width: "50", className: "no" },
+    { field: "NO", title: "NO", width: "30", className: "no" },
     { field: "SERVICE", title: "서비스", width: "120", className: "service" },
     {
       field: "SERVERNAME",
@@ -11,11 +11,11 @@ export const gridData = {
     { field: "UTILIZATION", title: "사용률(%)", className: "utilization" },
   ],
   serverColumns: [
-    { field: "NO", title: "NO", width: "50", className: "no" },
+    { field: "NO", title: "NO", width: "30", className: "no" },
     {
       field: "SERVERNAME",
       title: "장비명",
-      width: "180",
+      width: "160",
       className: "servername",
     },
     { field: "UTILIZATION", title: "사용률(%)", className: "utilization" },
@@ -24,32 +24,32 @@ export const gridData = {
     {
       field: "ALARMSEVERITY",
       title: "등급",
-      width: "80",
+      width: "40",
       className: "alarmseverity",
     },
-    { field: "TIME", title: "발생일시", width: "200", className: "time" },
+    { field: "TIME", title: "발생일시", width: "160", className: "time" },
     {
       field: "ALARMSERVERNAME",
       title: "장비명",
-      width: "150",
+      width: "220",
       className: "alarmservername",
     },
     {
       field: "IP",
       title: "ip",
-      width: "140",
+      width: "120",
       className: "ip",
     },
     {
       field: "RESOURCENAME",
       title: "리소스명",
-      width: "298",
+      width: "270",
       className: "resourcename",
     },
     {
       field: "ALARMNAME",
       title: "알람명",
-      width: "426",
+      width: "320",
       className: "alarmname",
     },
     {
