@@ -35,9 +35,9 @@ const AlarmGrid = (props) => {
     );
   };
   return (
-    <div id="alarmGrid" className={styles.AlarmGrid_wrapper}>
+    <div id="alarmGrid" className={styles.alarmGrid_wrapper}>
       <Grid
-        className={styles.AlarmGrid}
+        className={styles.alarmGrid}
         data={orderBy(responseData.data, sort)}
         sortable
         sort={sort}
