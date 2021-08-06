@@ -16,20 +16,16 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: $container-padding;
-  padding-bottom: $container-padding - 1rem;
 }
 
 .sms__center__container {
   height: 100%;
   padding: $container-padding;
 }
-
 .sms__center__items {
   display: flex;
   height: 50%;
 }
-
 .sms__center__item {
   flex: 1;
   background-color: var(--bg-component);
