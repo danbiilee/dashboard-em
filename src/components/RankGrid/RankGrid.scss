@@ -1,19 +1,24 @@
+@import "Styles/variables.scss";
+
 #rankGrid {
-  .k-grid-content.k-virtual-content{
+  .k-grid-header {
+    line-height: 24px;
+    th {
+      border-width: 0;
+    }
+  }
+  .k-grid-content {
     display: grid;
     grid-template-rows: 1fr;
+    font-size: $rank-grid-font-size;
+    .k-master-row {
+      background-color: transparent !important;
+    }
+    td {
+      border-color: transparent;
+      &:is(.no, .utilization) {
+        text-align: center;
+      }
+    }
   }
-  .k-grid-header.k-grid-draggable-header {
-    border-color: var(--border-primary) !important;
-    padding: 0px !important;
-  }
-}
-td.no {
-  text-align: center;
-}
-td.server {
-  text-align: left;
-}
-td.utilization {
-  text-align: center;
 }

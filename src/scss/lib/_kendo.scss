@@ -1,0 +1,81 @@
+@import "../variables";
+
+// Grid
+.k-grid {
+  height: 100%;
+  border-width: 0px;
+  background-color: transparent;
+  font-family: "KoPub Dotum";
+  font-weight: bold;
+  font-size: $grid-font-size;
+  .k-grid-header {
+    padding: 0px !important;
+    background-color: var(--bg-component);
+    border-color: var(--border-primary);
+    color: var(--font-grid-header);
+    thead {
+      text-align: center;
+      th {
+        padding: 0;
+      }
+    }
+  }
+  .k-grid-container {
+    color: var(--font-contents);
+    tbody {
+      background-color: var(--bg-component);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      tr:hover {
+        color: inherit;
+      }
+      td {
+        padding: 0 $common-padding;
+      }
+    }
+  }
+}
+
+// Progress Bar
+.k-progressbar {
+  border-radius: 0;
+}
+
+// Switch - Header
+.k-switch {
+  width: 22px;
+  height: 11px;
+  margin-top: -1px;
+  .k-switch-container {
+    display: flex;
+    align-items: center;
+    width: 22px;
+  }
+}
+.k-switch-handle {
+  width: 7px;
+  height: 7px;
+}
+.k-switch-container,
+.k-switch-handle {
+  cursor: pointer;
+}
+.k-switch-on {
+  .k-switch-container {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  .k-switch-handle {
+    left: 10px;
+  }
+}
+.k-switch-off {
+  .k-switch-container {
+    background-color: var(--color-gray);
+    border-color: var(--color-gray);
+  }
+  .k-switch-handle {
+    left: -1px;
+    background-color: var(--color-white);
+  }
+}
