@@ -31,3 +31,8 @@
   background-color: var(--bg-component);
   font-size: $common-font-size;
 }
+
+.nms__border__container {
+  padding-top: $container-padding;
+  border-top: 1px solid var(--border-primary);
+}

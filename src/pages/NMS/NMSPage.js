@@ -7,8 +7,14 @@ import AlarmGrid from "../../components/AlarmGrid";
 import RankGrid from "../../components/RankGrid";
 import styles from "../pages.module.scss";
 import { gridData } from "./TestData";
+import TrafficChart from "../../components/TrafficChart";
 
 const NMSPage = () => {
+  const selectedResourceId = 1;
+  const chartGroups = gridData.trafficChartGroupData.find(
+    (item) => item.RESOURCE_ID === selectedResourceId
+  ).RESOURCE_GROUP_LIST;
+
   return (
     <Main>
       <Main.Top>
@@ -25,7 +31,7 @@ const NMSPage = () => {
             {/* RX, TX 전환 필요 */}
             <Title name="트래픽 사용률(RX) TOP5" />
             <RankGrid
-              data={gridData.Rank_traffic_data}
+              data={gridData.rankTrafficData}
               columns={gridData.trafficColumns}
             />
           </div>
@@ -38,6 +44,11 @@ const NMSPage = () => {
         <Top.Side>
           <div className={styles.side__container}>
             <Title name="트래픽 현황(Kbps)" />
+            <div className={styles.nms__border__container}>
+              {chartGroups.map((group) => (
+                <TrafficChart key={group.GROUP_ID} data={group} />
+              ))}
+            </div>
           </div>
         </Top.Side>
       </Main.Top>

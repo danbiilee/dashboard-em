@@ -47,33 +47,6 @@ export const gridData = {
       className: "detail",
     },
   ],
-  Rank_traffic_data: [
-    {
-      NO: "1",
-      NETWORKNAME: "[6506-4-282-46] Te2/1/3",
-      UTILIZATION: 83.3,
-    },
-    {
-      NO: "2",
-      NETWORKNAME: "[6506-4-282-46] Te1/6/5",
-      UTILIZATION: 82,
-    },
-    {
-      NO: "3",
-      NETWORKNAME: "[6506-4-282-46] Te1/1/3",
-      UTILIZATION: 65.2,
-    },
-    {
-      NO: "4",
-      NETWORKNAME: "[6506-4-282-46] Te2/1/1",
-      UTILIZATION: 20.3,
-    },
-    {
-      NO: "5",
-      NETWORKNAME: "[6506-4-282-46] Te1/6/4",
-      UTILIZATION: 10.4,
-    },
-  ],
   AlarmData: [
     {
       ALARMSEVERITY: "심각",
@@ -155,6 +128,281 @@ export const gridData = {
       RESOURCENAME: "TenGigabitEthernet 1/45",
       ALARMNAME: "응답시간",
       DETAIL: "업무서비스 응답시간 지연[2.0ms(>0.1ms, 2회 연속)]",
+    },
+  ],
+  rankTrafficData: [
+    {
+      NO: "1",
+      NETWORKNAME: "[6506-4-282-46] Te2/1/3",
+      UTILIZATION: 83.3,
+    },
+    {
+      NO: "2",
+      NETWORKNAME: "[6506-4-282-46] Te1/6/5",
+      UTILIZATION: 82,
+    },
+    {
+      NO: "3",
+      NETWORKNAME: "[6506-4-282-46] Te1/1/3",
+      UTILIZATION: 65.2,
+    },
+    {
+      NO: "4",
+      NETWORKNAME: "[6506-4-282-46] Te2/1/1",
+      UTILIZATION: 20.3,
+    },
+    {
+      NO: "5",
+      NETWORKNAME: "[6506-4-282-46] Te1/6/4",
+      UTILIZATION: 10.4,
+    },
+  ],
+  trafficChartGroupData: [
+    {
+      RESOURCE_ID: 1,
+      RESOURCE_NAME: "TEST1",
+      RESOURCE_GROUP_LIST: [
+        {
+          GROUP_ID: 1,
+          GROUP_NAME: "L4 Switch #1",
+          LIST: [
+            {
+              ID: 1,
+              DATE: "2021-08-11 09:00:00 GMT",
+              RX: 400,
+              TX: 200,
+            },
+            {
+              ID: 2,
+              DATE: "2021-08-11 10:00:00 GMT",
+              RX: 500,
+              TX: 300,
+            },
+            {
+              ID: 3,
+              DATE: "2021-08-11 11:00:00 GMT",
+              RX: 300,
+              TX: 100,
+            },
+            {
+              ID: 4,
+              DATE: "2021-08-11 12:00:00 GMT",
+              RX: 510,
+              TX: 310,
+            },
+            {
+              ID: 5,
+              DATE: "2021-08-11 13:00:00 GMT",
+              RX: 630,
+              TX: 330,
+            },
+            {
+              ID: 6,
+              DATE: "2021-08-11 14:00:00 GMT",
+              RX: 590,
+              TX: 290,
+            },
+            {
+              ID: 7,
+              DATE: "2021-08-11 15:00:00 GMT",
+              RX: 650,
+              TX: 350,
+            },
+            {
+              ID: 8,
+              DATE: "2021-08-11 16:00:00 GMT",
+              RX: 620,
+              TX: 320,
+            },
+            {
+              ID: 9,
+              DATE: "2021-08-11 17:00:00 GMT",
+              RX: 550,
+              TX: 250,
+            },
+          ],
+        },
+        {
+          GROUP_ID: 2,
+          GROUP_NAME: "L4 Switch #2",
+          LIST: [
+            {
+              ID: 1,
+              DATE: "2021-08-11 09:00:00 GMT",
+              RX: 400,
+              TX: 200,
+            },
+            {
+              ID: 2,
+              DATE: "2021-08-11 10:00:00 GMT",
+              RX: 500,
+              TX: 300,
+            },
+            {
+              ID: 3,
+              DATE: "2021-08-11 11:00:00 GMT",
+              RX: 300,
+              TX: 100,
+            },
+            {
+              ID: 4,
+              DATE: "2021-08-11 12:00:00 GMT",
+              RX: 510,
+              TX: 310,
+            },
+            {
+              ID: 5,
+              DATE: "2021-08-11 13:00:00 GMT",
+              RX: 630,
+              TX: 330,
+            },
+            {
+              ID: 6,
+              DATE: "2021-08-11 14:00:00 GMT",
+              RX: 590,
+              TX: 290,
+            },
+            {
+              ID: 7,
+              DATE: "2021-08-11 15:00:00 GMT",
+              RX: 650,
+              TX: 350,
+            },
+            {
+              ID: 8,
+              DATE: "2021-08-11 16:00:00 GMT",
+              RX: 620,
+              TX: 320,
+            },
+            {
+              ID: 9,
+              DATE: "2021-08-11 17:00:00 GMT",
+              RX: 550,
+              TX: 250,
+            },
+          ],
+        },
+        {
+          GROUP_ID: 3,
+          GROUP_NAME: "L4 Switch #3",
+          LIST: [
+            {
+              ID: 1,
+              DATE: "2021-08-11 09:00:00 GMT",
+              RX: 400,
+              TX: 200,
+            },
+            {
+              ID: 2,
+              DATE: "2021-08-11 10:00:00 GMT",
+              RX: 500,
+              TX: 300,
+            },
+            {
+              ID: 3,
+              DATE: "2021-08-11 11:00:00 GMT",
+              RX: 300,
+              TX: 100,
+            },
+            {
+              ID: 4,
+              DATE: "2021-08-11 12:00:00 GMT",
+              RX: 510,
+              TX: 310,
+            },
+            {
+              ID: 5,
+              DATE: "2021-08-11 13:00:00 GMT",
+              RX: 630,
+              TX: 330,
+            },
+            {
+              ID: 6,
+              DATE: "2021-08-11 14:00:00 GMT",
+              RX: 590,
+              TX: 290,
+            },
+            {
+              ID: 7,
+              DATE: "2021-08-11 15:00:00 GMT",
+              RX: 650,
+              TX: 350,
+            },
+            {
+              ID: 8,
+              DATE: "2021-08-11 16:00:00 GMT",
+              RX: 620,
+              TX: 320,
+            },
+            {
+              ID: 9,
+              DATE: "2021-08-11 17:00:00 GMT",
+              RX: 550,
+              TX: 250,
+            },
+          ],
+        },
+        {
+          GROUP_ID: 4,
+          GROUP_NAME: "L4 Switch #4",
+          LIST: [
+            {
+              ID: 1,
+              DATE: "2021-08-11 09:00:00 GMT",
+              RX: 400,
+              TX: 200,
+            },
+            {
+              ID: 2,
+              DATE: "2021-08-11 10:00:00 GMT",
+              RX: 500,
+              TX: 300,
+            },
+            {
+              ID: 3,
+              DATE: "2021-08-11 11:00:00 GMT",
+              RX: 300,
+              TX: 100,
+            },
+            {
+              ID: 4,
+              DATE: "2021-08-11 12:00:00 GMT",
+              RX: 510,
+              TX: 310,
+            },
+            {
+              ID: 5,
+              DATE: "2021-08-11 13:00:00 GMT",
+              RX: 630,
+              TX: 330,
+            },
+            {
+              ID: 6,
+              DATE: "2021-08-11 14:00:00 GMT",
+              RX: 590,
+              TX: 290,
+            },
+            {
+              ID: 7,
+              DATE: "2021-08-11 15:00:00 GMT",
+              RX: 650,
+              TX: 350,
+            },
+            {
+              ID: 8,
+              DATE: "2021-08-11 16:00:00 GMT",
+              RX: 620,
+              TX: 320,
+            },
+            {
+              ID: 9,
+              DATE: "2021-08-11 17:00:00 GMT",
+              RX: 550,
+              TX: 250,
+            },
+          ],
+        },
+      ],
     },
   ],
 };
