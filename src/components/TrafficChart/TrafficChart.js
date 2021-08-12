@@ -65,11 +65,7 @@ const TrafficChart = ({ data }) => {
   return (
     <div className={styles.chart_wrapper}>
       <h3 className={styles.title}>{GROUP_NAME}</h3>
-      <HighchartsReact
-        className={styles.chart}
-        highcharts={Highcharts}
-        options={options}
-      />
+      <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );
 };
