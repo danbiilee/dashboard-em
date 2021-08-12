@@ -4,12 +4,14 @@ import styles from "./TrafficChart.module.scss";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { LINE_COLORS, defaultSeriesOptions, defaultOptions } from "./options";
+import { useTheme } from "../../context/Theme";
 
 const TrafficChart = ({ data }) => {
   const { GROUP_NAME, LIST } = data;
   const [categories, setCategories] = useState([]);
   const [series, setSeries] = useState([]);
   const [options, setOptions] = useState(defaultOptions);
+  const themeMode = useTheme();
 
   useEffect(() => {
     const categories = [];
@@ -61,6 +63,20 @@ const TrafficChart = ({ data }) => {
       series,
     }));
   }, [categories, series]);
+
+  useEffect(() => {
+    setOptions((prevState) => ({
+      ...prevState,
+      xAxis: {
+        ...prevState.xAxis,
+        lineColor: LINE_COLORS[themeMode].xAxis_line,
+      },
+      yAxis: {
+        ...prevState.yAxis,
+        gridLineColor: LINE_COLORS[themeMode].yAxis_grinLine,
+      },
+    }));
+  }, [themeMode]);
 
   return (
     <div className={styles.chart_wrapper}>

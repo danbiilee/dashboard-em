@@ -1,6 +1,14 @@
 export const LINE_COLORS = {
   rx: "#02bcd5",
   tx: "#506cf6",
+  light: {
+    xAxis_line: "#ccd6eb",
+    yAxis_grinLine: "#e6e6e6",
+  },
+  dark: {
+    xAxis_line: "#4c4c4c",
+    yAxis_grinLine: "#4c4c4c",
+  },
 };
 
 export const defaultSeriesOptions = {
@@ -23,6 +31,7 @@ export const defaultOptions = {
     type: "area",
     height: "28.3%",
     margin: [10, 8, 20, 35],
+    backgroundColor: "transparent",
   },
   credits: {
     enabled: false,
@@ -37,7 +46,7 @@ export const defaultOptions = {
     labels: {
       x: -5,
       style: {
-        color: "#575B5D",
+        color: "#575b5d",
         fontWeight: "normal",
         fontSize: "7px",
       },
