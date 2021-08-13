@@ -1,5 +1,6 @@
 @import "Styles/variables.scss";
 
+// Common
 .side__container {
   display: flex;
   flex-direction: column;
@@ -17,7 +18,19 @@
   flex-direction: column;
   flex: 1;
 }
+.title__container {
+  position: relative;
+}
+.title__container__button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.title__container__button.resource {
+  top: -0.5rem;
+}
 
+// SMS
 .sms__center__container {
   height: 100%;
   padding: $container-padding;
@@ -32,7 +45,9 @@
   font-size: $common-font-size;
 }
 
+// NMS
 .nms__border__container {
+  margin-top: -0.5rem;
   padding-top: $container-padding;
   border-top: 1px solid var(--border-primary);
 }
