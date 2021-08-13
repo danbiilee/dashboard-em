@@ -79,3 +79,31 @@
     background-color: var(--color-white);
   }
 }
+
+// Button
+.k-button.k-outline.k-primary {
+  height: 18px;
+  padding: 0 0.8rem;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-size: 11px;
+  &:focus {
+    background-color: none;
+    color: var(--color-primary);
+    box-shadow: none;
+  }
+  &:hover,
+  &:active {
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+}
+.top5 .k-button.k-outline.k-primary {
+  &:first-of-type {
+    margin-right: 0.5rem;
+  }
+}
+.status .k-button.k-outline.k-primary {
+  height: 24px;
+}

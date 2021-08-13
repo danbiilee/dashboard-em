@@ -47,7 +47,63 @@ export const gridData = {
       className: "detail",
     },
   ],
-  AlarmData: [
+  rankTrafficData: {
+    RX: [
+      {
+        NO: "1",
+        NETWORKNAME: "[6506-4-282-46] Te2/1/3",
+        UTILIZATION: 83.3,
+      },
+      {
+        NO: "2",
+        NETWORKNAME: "[6506-4-282-46] Te1/6/5",
+        UTILIZATION: 82,
+      },
+      {
+        NO: "3",
+        NETWORKNAME: "[6506-4-282-46] Te1/1/3",
+        UTILIZATION: 65.2,
+      },
+      {
+        NO: "4",
+        NETWORKNAME: "[6506-4-282-46] Te2/1/1",
+        UTILIZATION: 20.3,
+      },
+      {
+        NO: "5",
+        NETWORKNAME: "[6506-4-282-46] Te1/6/4",
+        UTILIZATION: 10.4,
+      },
+    ],
+    TX: [
+      {
+        NO: "1",
+        NETWORKNAME: "[6506-2-282-46] Te2/1/3",
+        UTILIZATION: 73.3,
+      },
+      {
+        NO: "2",
+        NETWORKNAME: "[6506-2-282-46] Te1/6/5",
+        UTILIZATION: 72,
+      },
+      {
+        NO: "3",
+        NETWORKNAME: "[6506-2-282-46] Te1/1/3",
+        UTILIZATION: 55.2,
+      },
+      {
+        NO: "4",
+        NETWORKNAME: "[6506-2-282-46] Te2/1/1",
+        UTILIZATION: 10.3,
+      },
+      {
+        NO: "5",
+        NETWORKNAME: "[6506-2-282-46] Te1/6/4",
+        UTILIZATION: 5.4,
+      },
+    ],
+  },
+  alarmData: [
     {
       ALARMSEVERITY: "심각",
       TIME: "2021/06/24 09: 00: 05",
@@ -128,33 +184,6 @@ export const gridData = {
       RESOURCENAME: "TenGigabitEthernet 1/45",
       ALARMNAME: "응답시간",
       DETAIL: "업무서비스 응답시간 지연[2.0ms(>0.1ms, 2회 연속)]",
-    },
-  ],
-  rankTrafficData: [
-    {
-      NO: "1",
-      NETWORKNAME: "[6506-4-282-46] Te2/1/3",
-      UTILIZATION: 83.3,
-    },
-    {
-      NO: "2",
-      NETWORKNAME: "[6506-4-282-46] Te1/6/5",
-      UTILIZATION: 82,
-    },
-    {
-      NO: "3",
-      NETWORKNAME: "[6506-4-282-46] Te1/1/3",
-      UTILIZATION: 65.2,
-    },
-    {
-      NO: "4",
-      NETWORKNAME: "[6506-4-282-46] Te2/1/1",
-      UTILIZATION: 20.3,
-    },
-    {
-      NO: "5",
-      NETWORKNAME: "[6506-4-282-46] Te1/6/4",
-      UTILIZATION: 10.4,
     },
   ],
   trafficChartGroupData: [
