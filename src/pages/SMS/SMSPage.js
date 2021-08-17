@@ -1,12 +1,13 @@
 import React from "react";
 import Main from "../../containers/Main";
 import Title from "../../components/Title";
-import Grid from "../../components/Grid";
 import Top from "../../containers/Main/Top";
 import styles from "../pages.module.scss";
 import RankGrid from "../../components/RankGrid";
 import AlarmGrid from "../../components/AlarmGrid";
 import { gridData } from "./TestData";
+import AlarmStatus from "../../components/AlarmStatus";
+import ConfigurationStatus from "../../components/ConfigurationStatus";
 
 const SMSPage = () => {
   return (
@@ -15,11 +16,11 @@ const SMSPage = () => {
         <Top.Side>
           <div className={styles.side__container}>
             <Title name="알람현황" />
-            <Grid />
+            <AlarmStatus />
           </div>
           <div className={styles.side__container}>
             <Title name="구성현황" />
-            <Grid />
+            <ConfigurationStatus />
           </div>
           <div className={styles.side__container}>
             <Title name="파일시스템 사용률 TOP5" />
