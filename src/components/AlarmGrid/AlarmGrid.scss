@@ -2,12 +2,50 @@
 
 #alarmGrid {
   .k-grid-header {
-    line-height: 24px;
+    line-height: 2.9rem;
+    & col:nth-of-type(1) {
+      width: 4rem;
+    }
+    & col:nth-of-type(2) {
+      width: 16rem;
+    }
+    & col:nth-of-type(3) {
+      width: 22rem;
+    }
+    & col:nth-of-type(4) {
+      width: 12rem;
+    }
+    & col:nth-of-type(5) {
+      width: 27rem;
+    }
+    & col:nth-of-type(6) {
+      width: 32rem;
+    }
+  }
+  .k-grid-table {
+    & col:nth-of-type(1) {
+      width: 4rem;
+    }
+    & col:nth-of-type(2) {
+      width: 16rem;
+    }
+    & col:nth-of-type(3) {
+      width: 22rem;
+    }
+    & col:nth-of-type(4) {
+      width: 12rem;
+    }
+    & col:nth-of-type(5) {
+      width: 27rem;
+    }
+    & col:nth-of-type(6) {
+      width: 32rem;
+    }
   }
   .k-grid-container {
     .k-master-row {
       background-color: var(--bg-grid-row-odd);
-      line-height: 24px;
+      line-height: 2.9rem;
     }
     .k-master-row.k-alt {
       background-color: var(--bg-grid-row-even);
