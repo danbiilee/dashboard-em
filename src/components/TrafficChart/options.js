@@ -1,6 +1,9 @@
-export const LINE_COLORS = {
-  rx: "#02bcd5",
-  tx: "#506cf6",
+export const COLORS = {
+  common: {
+    rx: "#02bcd5",
+    tx: "#506cf6",
+    label: "#575b5d",
+  },
   light: {
     xAxis_line: "#ccd6eb",
     yAxis_grinLine: "#e6e6e6",
@@ -46,7 +49,7 @@ export const defaultOptions = {
     labels: {
       x: -5,
       style: {
-        color: "#575b5d",
+        color: COLORS.common.label,
         fontWeight: "normal",
         fontSize: "7px",
       },
@@ -65,7 +68,7 @@ export const defaultOptions = {
       enabled: true,
       y: 12,
       style: {
-        color: "#575B5D",
+        color: COLORS.common.label,
         fontWeight: "normal",
         fontSize: "7px",
       },
