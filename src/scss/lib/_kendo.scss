@@ -99,6 +99,10 @@
     background-color: var(--color-primary);
   }
 }
+.k-button.k-outline.k-primary.selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
 .top5 .k-button.k-outline.k-primary {
   &:first-of-type {
     margin-right: 0.5rem;
