@@ -39,7 +39,11 @@
 }
 .sms__center__items {
   display: flex;
-  height: 50%;
+  height: 46%;
+  margin-bottom: 2rem;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 .sms__center__item {
   flex: 1;

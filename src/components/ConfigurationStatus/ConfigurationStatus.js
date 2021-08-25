@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useTheme } from "../../context/Theme";
 import SERVER_LIGHT from "../../assets/images/server-icon-white.png";
-import SERVER_DARK from "../../assets/images/server-icon-white.png";
+import SERVER_DARK from "../../assets/images/server-icon-dark.png";
 import NETWORK_LIGHT from "../../assets/images/network-icon-white.png";
-import NETWORK_DARK from "../../assets/images/network-icon-white.png";
+import NETWORK_DARK from "../../assets/images/network-icon-dark.png";
 import styles from "./ConfigurationStatus.module.scss";
 
 const ConfigurationStatus = () => {
