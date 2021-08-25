@@ -6,7 +6,7 @@
 .image {
   width: 6.8rem;
   height: 7.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: $common-margin;
 }
 .critical_wrapper, .major_wrapper, .minor_wrapper {
   height: 100%;
@@ -27,7 +27,7 @@
 .subTitle {
   height: 100%;
   display: flex;
-  margin-left: $common-margin - 0.5rem;
+  margin-left: $common-margin - 1.5rem;
   font-size: $common-font-size + 0.6rem;
   color: var(--font-contents);
   justify-content: center;
