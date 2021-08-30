@@ -1,0 +1,105 @@
+@import "Styles/variables.scss";
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-dimmer);
+}
+
+.modal {
+  width: 59.5rem;
+  height: 78.8rem;
+  background-color: var(--bg-modal);
+  border-radius: 6px;
+  border: var(--border-modal-wrapper);
+  box-shadow: var(--shadow-modal-wrapper);
+}
+
+.header {
+  position: relative;
+}
+
+.title {
+  padding: $container-padding 0;
+  color: var(--modal-header);
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.tree {
+  overflow-y: auto;
+  height: 500px;
+  padding: $container-padding * 1.4 $container-padding * 1.8;
+  border: 1px solid var(--border-modal);
+  border-width: 1px 0;
+  font-size: $grid-font-size;
+}
+
+.tree ul:not(.list) {
+  padding-left: $container-padding;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: $common-margin 0;
+  color: var(--modal-content);
+}
+
+.item + ul {
+  display: none;
+}
+
+.item__expanded + ul {
+  display: block;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+}
+
+.selector__title {
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.footer {
+  padding: $container-padding * 1.4 $container-padding * 1.8;
+}
+
+.selected__title {
+  margin-bottom: $title-margin-bottom;
+  color: var(--color-primary);
+  font-size: 1.7rem;
+}
+
+.selected__box {
+  display: flex;
+  height: 5.4rem;
+  padding: 0 $common-padding * 1.5;
+  background-color: var(--bg-modal-seleted);
+  border-radius: 3px;
+  color: var(--modal-selected);
+  font-size: 1.5rem;
+  line-height: 5.4rem;
+}
+
+.selected__text {
+  max-width: 88%;
+  margin-right: $common-margin;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttons {
+  display: flex;
+  padding-top: $container-padding * 1.4;
+}
