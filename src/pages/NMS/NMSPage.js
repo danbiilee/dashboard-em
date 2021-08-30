@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Main from "../../containers/Main";
 import Top from "../../containers/Main/Top";
 import Title from "../../components/Title";
@@ -8,10 +9,11 @@ import styles from "../pages.module.scss";
 import { gridData } from "./TestData";
 import TrafficChart from "../../components/TrafficChart";
 import RTXButtons from "../../components/RTXButtons";
+import { SelectResourceButton } from "../../components/SelectResource";
 import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
 
-const NMSPage = () => {
+const NMSPage = ({ onToggleSelectModal }) => {
   const [selectedData, setSelectedData] = useState("RX");
   const selectedResourceId = 1;
   const chartGroups = gridData.trafficChartGroupData.find(
@@ -54,7 +56,16 @@ const NMSPage = () => {
         </Top.Center>
         <Top.Side>
           <div className={styles.side__container}>
-            <Title name="트래픽 현황(Kbps)" />
+            <div className={styles.title__container}>
+              <Title name="트래픽 현황(Kbps)" />
+              <div
+                className={`${styles.title__container__button} ${styles.resource} status`}
+              >
+                <SelectResourceButton
+                  onToggleSelectModal={onToggleSelectModal}
+                />
+              </div>
+            </div>
             <div className={styles.nms__border__container}>
               {chartGroups.map((group) => (
                 <TrafficChart key={group.GROUP_ID} data={group} />
@@ -74,6 +85,10 @@ const NMSPage = () => {
       </Main.Bottom>
     </Main>
   );
+};
+
+NMSPage.propTypes = {
+  onToggleSelectModal: PropTypes.func,
 };
 
 export default NMSPage;

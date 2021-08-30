@@ -79,10 +79,10 @@ const TrafficChart = ({ data }) => {
   }, [themeMode]);
 
   return (
-    <div className={styles.chart_wrapper}>
+    <>
       <h3 className={styles.title}>{GROUP_NAME}</h3>
       <HighchartsReact highcharts={Highcharts} options={options} />
-    </div>
+    </>
   );
 };
 

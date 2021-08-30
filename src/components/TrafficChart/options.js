@@ -32,7 +32,6 @@ export const defaultSeriesOptions = {
 export const defaultOptions = {
   chart: {
     type: "area",
-    height: "28.3%",
     margin: [10, 8, 20, 35],
     backgroundColor: "transparent",
   },

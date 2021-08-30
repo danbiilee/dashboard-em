@@ -83,10 +83,12 @@
 // Button
 .k-button.k-outline.k-primary {
   height: 18px;
+  height: 2rem;
   padding: 0 0.8rem;
   border-color: var(--color-primary);
   color: var(--color-primary);
   font-size: 11px;
+  font-size: 1.2rem;
   &:focus {
     background-color: none;
     color: var(--color-primary);
@@ -109,5 +111,101 @@
   }
 }
 .status .k-button.k-outline.k-primary {
-  height: 24px;
+  height: 2.5rem;
+}
+
+// Button - modal
+.k-button.k-primary.k-modal-header {
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
+  padding: 2rem;
+  color: var(--modal-close);
+  &:focus,
+  &:focus::after {
+    box-shadow: none;
+  }
+  .k-i-close {
+    cursor: pointer;
+    &::before {
+      font-size: 2rem;
+    }
+  }
+}
+.k-button.k-outline.k-primary.k-modal-footer {
+  flex: 1;
+  height: 5.4rem;
+  line-height: 5.4rem;
+  font-size: 1.7rem;
+  &:first-of-type {
+    margin-right: $side-margin;
+  }
+  &.cancel {
+    border-color: var(--border-modal);
+    color: var(--modal-cancel);
+    &:hover,
+    &:active {
+      background-color: var(--border-modal);
+      color: var(--color-white);
+    }
+  }
+  &.select {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    &:hover,
+    &:active {
+      background-color: #2677c8;
+    }
+  }
+}
+
+// Checkbox
+.k-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 0.15rem;
+  border-color: var(--border-checkbox);
+  background: var(--bg-modal);
+  &::before {
+    background: none;
+  }
+  &:focus {
+    border-color: var(--border-checkbox);
+    box-shadow: none;
+  }
+  &:checked,
+  &:checked:focus {
+    background-color: var(--color-primary);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 8 8'%3e%3cpath fill='%23ffffff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+    border-color: var(--color-primary);
+    box-shadow: none;
+  }
+}
+
+// Icon
+.k-svg-icon {
+  margin: 0 0.6rem;
+  &.k-svg-i-inherited-icon {
+    width: 2rem;
+  }
+}
+.tree__expander > .k-svg-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  svg,
+  path {
+    cursor: pointer;
+  }
+  &.k-svg-i-chevron-right-icon,
+  &.k-svg-i-chevron-down-icon svg:hover {
+    color: var(--modal-collapsed-icon);
+  }
+  &.k-svg-i-chevron-down-icon,
+  &.k-svg-i-chevron-right-icon:hover {
+    color: var(--modal-expanded-icon);
+  }
+}
+.tree__selector > .k-svg-icon {
+  color: var(--modal-icon);
+  font-size: 1.8rem;
 }

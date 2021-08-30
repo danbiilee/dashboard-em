@@ -33,7 +33,9 @@
   --bg-server-memory-component: #f8f9fb; // 서버 운영현황 메모리 수치
 
   // Border
-  --border-primary: var(--color-gray); // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
+  --border-primary: var(
+    --color-gray
+  ); // 서버 운영현황 내부 서버 컴포넌트, 그리드 등 선명한 테두리
   --border-secondary: #d9ddea; // 컴포넌트, 이너 박스(총 장비수, 파일시스템top5...) 등 흐릿한 테두리
   --border-active: var(--color-primary);
 
@@ -45,13 +47,33 @@
   --bg-grid-row-odd: #f8f9fb; // 그리드 홀수행 배경
   --bg-grid-row-even: var(--color-white); // 그리드 헤더, 짝수행 배경
   --grid-scrollbar: var(--border-primary); //그리드 스크롤바 선택 default 색상
-  --grid-scrollbar-hover: var(--font-contents); //그리드 스크롤바 선택 hover 시 색상
+  --grid-scrollbar-hover: var(
+    --font-contents
+  ); //그리드 스크롤바 선택 hover 시 색상
   --bg-grid-scrollbar: var(--bg-component); //그리드 스크롤바 track 색상
   --bg-progress: #e2e6ed;
   --line-rx: #02bcd5; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #506cf6;
   --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
   --area-tx: rgba(var(--line-tx), 0.3);
+
+  // Modal
+  --modal-base: #5f698d;
+  --modal-header: var(--modal-base);
+  --modal-close: var(--modal-base);
+  --modal-content: var(--color-navy);
+  --modal-selected: var(--modal-base);
+  --modal-cancel: var(--modal-base);
+  --bg-dimmer: #aeb3c660;
+  --bg-modal: var(--color-white);
+  --bg-modal-seleted: #eef1f4;
+  --border-checkbox: #6b757e;
+  --border-modal: var(--color-gray);
+  --border-modal-wrapper: 0;
+  --shadow-modal-wrapper: 0px 3px 6px #00000029;
+  --modal-icon: #5aa954;
+  --modal-expanded-icon: var(--modal-base);
+  --modal-collapsed-icon: var(--color-gray);
 }
 
 .theme-dark {
@@ -64,7 +86,7 @@
   --font-header-mode: #b3b4b5;
   --font-component-title: var(--color-white);
   --font-configuration-totalCount-title: #b3b4b5; // 구성현황 총 장비 수 타이틀
-  --font-configuration-totalCount: #FFFFFF; // 구성현황 총 장비 수 카운트
+  --font-configuration-totalCount: #ffffff; // 구성현황 총 장비 수 카운트
   --font-configuration-updownCount-title: #9a9b9b; // 구성현황 UP/DOWN 타이틀
   --font-configuration-updownCount: #b3b4b5; // 구성현황 UP/DOWN 카운트
   --font-server-title: #e3e6e6; // SMS 서버명 타이틀
@@ -92,11 +114,31 @@
   --bg-grid-row-odd: #191919; // 그리드 홀수행 배경
   --bg-grid-row-even: #262626; // 그리드 헤더, 짝수행 배경
   --grid-scrollbar: var(--border-primary); //그리드 스크롤바 선택 default 색상
-  --grid-scrollbar-hover: var(--font-contents); //그리드 스크롤바 선택 hover 시 색상
+  --grid-scrollbar-hover: var(
+    --font-contents
+  ); //그리드 스크롤바 선택 hover 시 색상
   --bg-grid-scrollbar: var(--bg-component); //그리드 스크롤바 track 색상
   --bg-progress: #414142;
   --line-rx: #43ffb7; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #26b4ff;
   --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
   --area-tx: rgba(var(--line-tx), 0.3);
+
+  // Modal
+  --modal-base: #5b5c5d;
+  --modal-header: var(--color-white);
+  --modal-close: var(--modal-base);
+  --modal-content: #e3e6e6;
+  --modal-selected: var(--font-contents);
+  --modal-cancel: #9a9b9b;
+  --bg-dimmer: #1f212290;
+  --bg-modal: #242527;
+  --bg-modal-seleted: #343435;
+  --border-checkbox: #6b757e;
+  --border-modal: var(--modal-base);
+  --border-modal-wrapper: 1px solid var(--modal-base);
+  --shadow-modal-wrapper: none;
+  --modal-icon: #5aa954;
+  --modal-expanded-icon: var(--color-gray);
+  --modal-collapsed-icon: var(--modal-base);
 }
