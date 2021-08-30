@@ -83,10 +83,12 @@
 // Button
 .k-button.k-outline.k-primary {
   height: 18px;
+  height: 2rem;
   padding: 0 0.8rem;
   border-color: var(--color-primary);
   color: var(--color-primary);
   font-size: 11px;
+  font-size: 1.2rem;
   &:focus {
     background-color: none;
     color: var(--color-primary);
@@ -109,7 +111,7 @@
   }
 }
 .status .k-button.k-outline.k-primary {
-  height: 24px;
+  height: 2.5rem;
 }
 
 // Button - modal
@@ -184,7 +186,7 @@
 .k-svg-icon {
   margin: 0 0.6rem;
   &.k-svg-i-inherited-icon {
-    width: 21px;
+    width: 2rem;
   }
 }
 .tree__expander > .k-svg-icon {
@@ -205,5 +207,5 @@
 }
 .tree__selector > .k-svg-icon {
   color: var(--modal-icon);
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
