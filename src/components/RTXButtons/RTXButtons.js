@@ -2,17 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "@progress/kendo-react-buttons";
 
-const RTXButtons = ({ setSelectedData }) => {
+const RTXButtons = ({ selectedData, setSelectedData }) => {
   const onClick = ({ currentTarget: { innerText } }) => {
     setSelectedData(innerText);
   };
 
   return (
     <>
-      <Button primary={true} look="outline" onClick={onClick}>
+      <Button
+        className={selectedData === "RX" && "selected"}
+        primary={true}
+        look="outline"
+        onClick={onClick}
+      >
         RX
       </Button>
-      <Button primary={true} look="outline" onClick={onClick}>
+      <Button
+        className={selectedData === "TX" && "selected"}
+        primary={true}
+        look="outline"
+        onClick={onClick}
+      >
         TX
       </Button>
     </>
@@ -20,6 +30,7 @@ const RTXButtons = ({ setSelectedData }) => {
 };
 
 RTXButtons.propTypes = {
+  selectedData: PropTypes.string,
   setSelectedData: PropTypes.func,
 };
 

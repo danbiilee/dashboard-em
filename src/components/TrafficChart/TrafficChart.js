@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./TrafficChart.module.scss";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { LINE_COLORS, defaultSeriesOptions, defaultOptions } from "./options";
+import { COLORS, defaultSeriesOptions, defaultOptions } from "./options";
 import { useTheme } from "../../context/Theme";
 
 const TrafficChart = ({ data }) => {
@@ -29,20 +29,20 @@ const TrafficChart = ({ data }) => {
       {
         ...defaultSeriesOptions,
         name: "RX",
-        color: LINE_COLORS.rx,
+        color: COLORS.common.rx,
         marker: {
           ...defaultSeriesOptions.marker,
-          lineColor: LINE_COLORS.rx,
+          lineColor: COLORS.common.rx,
         },
         data: rx,
       },
       {
         ...defaultSeriesOptions,
         name: "TX",
-        color: LINE_COLORS.tx,
+        color: COLORS.common.tx,
         marker: {
           ...defaultSeriesOptions.marker,
-          lineColor: LINE_COLORS.tx,
+          lineColor: COLORS.common.tx,
         },
         data: tx,
       },
@@ -69,11 +69,11 @@ const TrafficChart = ({ data }) => {
       ...prevState,
       xAxis: {
         ...prevState.xAxis,
-        lineColor: LINE_COLORS[themeMode].xAxis_line,
+        lineColor: COLORS[themeMode].xAxis_line,
       },
       yAxis: {
         ...prevState.yAxis,
-        gridLineColor: LINE_COLORS[themeMode].yAxis_grinLine,
+        gridLineColor: COLORS[themeMode].yAxis_grinLine,
       },
     }));
   }, [themeMode]);
