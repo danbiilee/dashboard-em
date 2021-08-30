@@ -141,7 +141,7 @@ const SelectResourceModal = ({ onToggleSelectModal }) => {
             icon="close"
             primary={true}
             look="flat"
-            className="k-modal-header"
+            className="k-modal-header close"
           />
         </div>
         <div className={styles.tree}>
