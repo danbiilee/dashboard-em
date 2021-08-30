@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { orderBy } from "@progress/kendo-data-query";
 import { ProgressBar } from "@progress/kendo-react-progressbars";
-// import "@progress/kendo-theme-default/dist/all.scss";
 import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
 import styles from "./RankGrid.module.scss";
 import "./RankGrid.scss";
@@ -24,7 +23,15 @@ const RankGrid = (props) => {
       </td>
     );
   };
-
+  const tooltipCall = (props) => {
+    const formatData = props;
+    console.log(props);
+    return (
+      <td title={formatData.dataItem[formatData.field]}>
+        {formatData.dataItem[formatData.field]}
+      </td>
+    );
+  };
   return (
     <div id="rankGrid" className={styles.grid_wrapper}>
       <Grid
@@ -44,7 +51,7 @@ const RankGrid = (props) => {
               key={{ i }}
               field={d.field}
               title={d.title}
-              cell={d.title === "사용률(%)" ? progressbar : ""}
+              cell={d.title === "사용률(%)" ? progressbar : tooltipCall}
               className={d.className}
             />
           );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { orderBy } from "@progress/kendo-data-query";
-// import "@progress/kendo-theme-default/dist/all.scss";
 import styles from "./AlarmGrid.module.scss";
 import "./AlarmGrid.scss";
 import PropTypes from "prop-types";
@@ -34,6 +33,14 @@ const AlarmGrid = (props) => {
       </td>
     );
   };
+  const tooltipCall = (props) => {
+    const formatData = props;
+    return (
+      <td title={formatData.dataItem[formatData.field]}>
+        {formatData.dataItem[formatData.field]}
+      </td>
+    );
+  };
   return (
     <div id="alarmGrid" className={styles.alarmGrid_wrapper}>
       <Grid
@@ -53,7 +60,7 @@ const AlarmGrid = (props) => {
               key={{ i }}
               field={d.field}
               title={d.title}
-              cell={d.title === "등급" ? severity : ""}
+              cell={d.title === "등급" ? severity : tooltipCall}
               className={d.className}
             />
           );
