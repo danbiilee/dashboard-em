@@ -18,7 +18,6 @@ const ConfigurationStatus = () => {
     NETWORK_d: NETWORK_DARK,
   };
   const mode_style = image[page_path + "_" + themeMode];
-  console.log(page_path + "_" + themeMode);
 
   return (
     <div className={styles.wrapper}>
