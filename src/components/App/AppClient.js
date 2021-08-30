@@ -17,12 +17,7 @@ const AppClient = () => {
         <Route exact path="/" component={SMS} />
         <Route
           path="/nms"
-          render={() => (
-            <NMS
-              showSelectModal={showSelectModal}
-              onToggleSelectModal={onToggleSelectModal}
-            />
-          )}
+          render={() => <NMS onToggleSelectModal={onToggleSelectModal} />}
         />
       </Switch>
       {showSelectModal && (
