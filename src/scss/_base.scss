@@ -16,7 +16,13 @@
 }
 
 html {
-  font-size: 65.5%;
+  font-size: 62.5%;  
+  @media only screen and (-webkit-device-pixel-ratio: 1.25) {
+    font-size: 46.8%;
+  }
+  @media only screen and (-moz-device-pixel-ratio: 1.25) {
+    font-size: 46.8%;
+  }
 }
 
 body {

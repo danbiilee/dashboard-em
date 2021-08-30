@@ -1,0 +1,35 @@
+@import "Styles/variables.scss";
+.alarmStatus_wrapper {
+  display: flex;
+  height: 100%;
+}
+.image {
+  width: 6.8rem;
+  height: 7.8rem;
+  margin-bottom: $common-margin;
+}
+.critical_wrapper, .major_wrapper, .minor_wrapper {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.count {
+  display: flex;
+  margin: $common-margin;
+  font-size: $common-font-size + 2rem;
+  color: var(--font-server-title);
+  justify-content: center;
+  align-items: center;
+}
+.subTitle {
+  height: 100%;
+  display: flex;
+  margin-left: $common-margin - 1.5rem;
+  font-size: $common-font-size + 0.6rem;
+  color: var(--font-contents);
+  justify-content: center;
+  align-items: center;
+}

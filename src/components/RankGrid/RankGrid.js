@@ -44,7 +44,6 @@ const RankGrid = (props) => {
               key={{ i }}
               field={d.field}
               title={d.title}
-              width={d.width}
               cell={d.title === "사용률(%)" ? progressbar : ""}
               className={d.className}
             />

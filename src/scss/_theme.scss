@@ -16,6 +16,10 @@
   --font-header-title: var(--color-navy);
   --font-header-mode: var(--color-gray);
   --font-component-title: var(--color-white);
+  --font-configuration-totalCount-title: #191b20; //구성현황 총 장비 수
+  --font-configuration-totalCount: #1b2e68; // 구성현황 총 장비 수 카운트
+  --font-configuration-updownCount-title: #1b2e68; // 구성현황 UP/DOWN 타이틀
+  --font-configuration-updownCount: #1b2e68; // 구성현황 UP/DOWN 카운트
   --font-server-title: var(--color-navy); // SMS 서버명 타이틀
   --font-memory-title: #191b20; // SMS 메모리 타이틀
 
@@ -81,6 +85,10 @@
   --font-header-title: var(--color-white);
   --font-header-mode: #b3b4b5;
   --font-component-title: var(--color-white);
+  --font-configuration-totalCount-title: #b3b4b5; // 구성현황 총 장비 수 타이틀
+  --font-configuration-totalCount: #FFFFFF; // 구성현황 총 장비 수 카운트
+  --font-configuration-updownCount-title: #9a9b9b; // 구성현황 UP/DOWN 타이틀
+  --font-configuration-updownCount: #b3b4b5; // 구성현황 UP/DOWN 카운트
   --font-server-title: #e3e6e6; // SMS 서버명 타이틀
   --font-memory-title: #b3b4b5; // SMS 메모리 타이틀
 

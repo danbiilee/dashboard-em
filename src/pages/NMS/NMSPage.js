@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Main from "../../containers/Main";
 import Top from "../../containers/Main/Top";
 import Title from "../../components/Title";
-import Grid from "../../components/Grid";
 import AlarmGrid from "../../components/AlarmGrid";
 import RankGrid from "../../components/RankGrid";
 import styles from "../pages.module.scss";
@@ -11,6 +10,8 @@ import { gridData } from "./TestData";
 import TrafficChart from "../../components/TrafficChart";
 import RTXButtons from "../../components/RTXButtons";
 import { SelectResourceButton } from "../../components/SelectResource";
+import AlarmStatus from "../../components/AlarmStatus";
+import ConfigurationStatus from "../../components/ConfigurationStatus";
 
 const NMSPage = ({ onToggleSelectModal }) => {
   const [selectedData, setSelectedData] = useState("RX");
@@ -25,11 +26,11 @@ const NMSPage = ({ onToggleSelectModal }) => {
         <Top.Side>
           <div className={styles.side__container}>
             <Title name="알람현황" />
-            <Grid />
+            <AlarmStatus />
           </div>
           <div className={styles.side__container}>
             <Title name="구성현황" />
-            <Grid />
+            <ConfigurationStatus />
           </div>
           <div className={styles.side__container}>
             <div className={styles.title__container}>
