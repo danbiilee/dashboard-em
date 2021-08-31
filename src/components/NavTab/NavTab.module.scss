@@ -1,0 +1,18 @@
+@import "Styles/variables.scss";
+
+.nav {
+  position: absolute;
+}
+
+.link {
+  display: inline-block;
+  padding: 0 $common-padding * 1.3;
+  height: $header-height;
+  text-decoration: none;
+  color: var(--font-contents);
+}
+
+.link.selected {
+  color: var(--font-active);
+  border-bottom: 3px solid var(--border-active);
+}
