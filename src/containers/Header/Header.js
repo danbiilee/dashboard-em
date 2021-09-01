@@ -1,9 +1,10 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Clock from "../../components/Clock/Clock";
 import ThemeButton from "../../components/ThemeButton/ThemeButton";
 import styles from "./Header.module.scss";
 import { useTheme } from "../../context/Theme";
+import NavTab from "../../components/NavTab";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -11,30 +12,12 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.tab}>
-        <NavLink
-          exact
-          to="/"
-          className={styles.link}
-          activeClassName={styles.selected}
-        >
-          SMS
-        </NavLink>
-        <NavLink
-          to="/nms"
-          className={styles.link}
-          activeClassName={styles.selected}
-        >
-          NMS
-        </NavLink>
-      </div>
+      <NavTab />
       <h1 className={styles.logo}>
         {pathname === "/" ? "SMS" : "NMS"} DASHBOARD
       </h1>
       <div className={styles.utils}>
-        <div className={styles.clock}>
-          <Clock />
-        </div>
+        <Clock />
         <div className={styles.mode}>
           <ThemeButton />
           <span className={styles.mode__text}>

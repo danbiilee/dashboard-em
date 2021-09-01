@@ -14,6 +14,9 @@
   }
   border: 1px solid var(--border-secondary);
   background-color: var(--bg-component);
+  &.nms__chart__container {
+    flex-basis: 62rem;
+  }
 }
 .bottom__container {
   display: flex;
@@ -56,6 +59,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 90%;
   margin-top: -0.5rem;
   padding-top: $container-padding;
   border-top: 1px solid var(--border-primary);

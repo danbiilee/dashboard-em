@@ -55,7 +55,9 @@ const NMSPage = ({ onToggleSelectModal }) => {
           </div>
         </Top.Center>
         <Top.Side>
-          <div className={styles.side__container}>
+          <div
+            className={`${styles.side__container} ${styles.nms__chart__container}`}
+          >
             <div className={styles.title__container}>
               <Title name="트래픽 현황(Kbps)" />
               <div

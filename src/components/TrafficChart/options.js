@@ -32,7 +32,7 @@ export const defaultSeriesOptions = {
 export const defaultOptions = {
   chart: {
     type: "area",
-    margin: [10, 8, 20, 35],
+    margin: [10, 8, 23, 35],
     backgroundColor: "transparent",
   },
   credits: {
@@ -47,10 +47,11 @@ export const defaultOptions = {
     },
     labels: {
       x: -5,
+      y: -1,
       style: {
         color: COLORS.common.label,
         fontWeight: "normal",
-        fontSize: "7px",
+        fontSize: "0.7rem",
       },
       formatter: function () {
         return this.value + "MB";
@@ -65,11 +66,11 @@ export const defaultOptions = {
     max: 7.5, // categories.length - 1.5
     labels: {
       enabled: true,
-      y: 12,
+      y: 11,
       style: {
         color: COLORS.common.label,
         fontWeight: "normal",
-        fontSize: "7px",
+        fontSize: "0.7rem",
       },
       format: "{value:%H:%M}",
       // categories 옵션 안쓸 경우

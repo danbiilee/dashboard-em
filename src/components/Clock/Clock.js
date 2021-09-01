@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Clock.module.scss";
 
 const Clock = () => {
   const [dateTime, setDateTime] = useState(new Date());
@@ -23,7 +24,7 @@ const Clock = () => {
 
   const formatDate = getFormattedDate(dateTime);
 
-  return <div>{formatDate}</div>;
+  return <div className={styles.clock}>{formatDate}</div>;
 };
 
 export default Clock;

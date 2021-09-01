@@ -16,7 +16,7 @@
 }
 
 html {
-  font-size: 62.5%;  
+  font-size: 62.5%;
   @media only screen and (-webkit-device-pixel-ratio: 1.25) {
     font-size: 46.8%;
   }
@@ -26,12 +26,14 @@ html {
 }
 
 body {
+  overflow: hidden;
   font-family: "KoPub Dotum";
   font-weight: bold;
   background-color: var(--bg-container);
 }
 
 div#root {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   height: 100vh;

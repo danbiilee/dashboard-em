@@ -1,6 +1,5 @@
 @import "Styles/variables.scss";
 .wrapper {
-  width: 100%;
   height: 100%;
   display: flex;
   padding: $common-padding + 0.7rem;
@@ -9,49 +8,55 @@
 }
 //이미지, 타이틀
 .left_wrapper {
-  width: 7.8rem;
-  height: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
-  .image {
-    width: 6.688rem;
-    height: 7.941rem;
-  }
-  .title {
-    height: 100%;
-    margin: $common-margin + 1rem;
-    display: flex;
-    font-size: $common-font-size + 0.6rem;
-    text-align: center;
-    align-items: center;
-
-  }
+  justify-content: center;
+}
+.image {
+  width: 6.688rem;
+  height: 68%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.image.server_light {
+  background-image: url(/src/assets/images/server-icon-white.png);
+}
+.image.server_dark {
+  background-image: url(/src/assets/images/server-icon-dark.png);
+}
+.image.network_light {
+  background-image: url(/src/assets/images/network-icon-white.png);
+}
+.image.network_dark {
+  background-image: url(/src/assets/images/network-icon-dark.png);
+}
+.title {
+  margin-top: $common-margin;
+  color: var(--color-primary);
+  font-size: $common-font-size + 0.6rem;
 }
 //총장비수, UP, DOWN
 .right_wrapper {
-  flex: 2;
-  padding: 1rem 1rem 1rem 2rem;
+  flex: 1;
+  padding: 0.5rem 1rem 0.5rem 3rem;
   display: flex;
-  align-items: center;
   flex-direction: column;
   .total_count_wrapper {
-    width: 100%;
     flex: 1;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #babecc;
     .count_title {
-      font-size:  $common-font-size + 0.6rem;
+      font-size: $common-font-size + 0.6rem;
       color: var(--font-configuration-totalCount-title);
     }
     .count_number {
       flex: 1;
       display: flex;
       justify-content: flex-end;
-      font-size:  $common-font-size + 1.7rem;
+      font-size: $common-font-size + 1.7rem;
       color: var(--font-configuration-totalCount);
     }
   }
@@ -73,5 +78,4 @@
       color: var(--font-configuration-updownCount);
     }
   }
-  
 }
