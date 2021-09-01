@@ -1,8 +1,9 @@
 @import "Styles/variables.scss";
 
 .clock {
-  padding: 0 $common-padding * 4.4;
+  width: 28.2rem;
   border: 1px solid var(--border-secondary);
   border-width: 0 1px;
+  text-align: center;
   letter-spacing: 1px;
 }
