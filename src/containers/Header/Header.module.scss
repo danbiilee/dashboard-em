@@ -10,7 +10,7 @@
   border: 1px solid var(--border-secondary);
   color: var(--font-header);
   font-size: $header-font-size;
-  line-height: $header-height;
+  line-height: $header-height - 0.1rem;
 }
 
 .logo {
@@ -27,8 +27,9 @@
 }
 
 .mode {
-  padding: 0 $common-padding * 2.2;
+  width: 12rem;
   color: var(--font-header-mode);
+  text-align: center;
   font-size: $common-font-size;
 }
 
