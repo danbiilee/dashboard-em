@@ -7,7 +7,7 @@ import { COLORS, defaultSeriesOptions, defaultOptions } from "./options";
 import { useTheme } from "../../context/Theme";
 
 const TrafficChart = ({ data }) => {
-  const { GROUP_NAME, LIST } = data;
+  const { RESOURCE_NAME, LIST } = data;
   const [categories, setCategories] = useState([]);
   const [series, setSeries] = useState([]);
   const [options, setOptions] = useState(defaultOptions);
@@ -80,7 +80,7 @@ const TrafficChart = ({ data }) => {
 
   return (
     <div className={styles.chart_wrapper}>
-      <h3 className={styles.title}>{GROUP_NAME}</h3>
+      <h3 className={styles.title}>{RESOURCE_NAME}</h3>
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );

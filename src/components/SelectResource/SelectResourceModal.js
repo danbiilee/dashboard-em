@@ -1,183 +1,114 @@
-import React, { useRef, useCallback, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import styles from "./SelectResource.module.scss";
-import { Button } from "@progress/kendo-react-buttons";
-import { SvgIcon } from "@progress/kendo-react-common";
 import {
-  homeIcon,
-  inheritedIcon,
-  rowsIcon,
-  chevronDownIcon,
-  chevronRightIcon,
+  exclamationCircleIcon,
+  checkOutlineIcon,
+  xIcon,
 } from "@progress/kendo-svg-icons";
-import Checkbox from "../Checkbox/Checkbox";
-import { processedTreeData } from "./TestData";
 import { useResourceTree } from "../../hooks";
+import { useSelectedResources } from "../../hooks";
+import CheckboxTree from "../CheckboxTree";
+import SvgIcon from "../SvgIcon";
+import Button from "../Button";
 
-const RenderTreeItem = ({ treeItem, itemKey, handleClick, handleChange }) => {
-  const keys = itemKey.split("/");
-
-  const getTreeItemClassName = useCallback((item) => {
-    let className = `${styles.item} tree__item`;
-    const isExpanded = item.expandable && item.expanded; // 오픈 여부
-
-    if (isExpanded) {
-      className += ` ${styles.item__expanded} tree__item--expanded`;
-    }
-
-    return className;
-  }, []);
-
-  return (
-    <li>
-      <div className={getTreeItemClassName(treeItem)}>
-        <span
-          className="tree__expander"
-          data-dir={itemKey}
-          onClick={(e) => handleClick(e, treeItem.expandable)}
-        >
-          {treeItem.expanded ? (
-            <SvgIcon icon={chevronDownIcon} />
-          ) : treeItem.expandable ? (
-            <SvgIcon icon={chevronRightIcon} />
-          ) : (
-            <span className="k-svg-icon"></span>
-          )}
-        </span>
-        <Checkbox name={itemKey} data={treeItem} onChange={handleChange}>
-          <span className={`${styles.selector} tree__selector`}>
-            {treeItem.depth === 0 ? (
-              <SvgIcon icon={homeIcon} />
-            ) : !treeItem.expandable ? (
-              <SvgIcon icon={rowsIcon} />
-            ) : (
-              <SvgIcon icon={inheritedIcon} />
-            )}
-            <span className={styles.selector__title}>
-              {keys[keys.length - 1]}
-            </span>
-          </span>
-        </Checkbox>
-      </div>
-      {treeItem.expandable && (
-        <ul>
-          {Object.keys(treeItem["children"]).map((childKey) => (
-            <RenderTreeItem
-              key={treeItem["children"][childKey].id}
-              treeItem={treeItem["children"][childKey]}
-              itemKey={`${itemKey}/${childKey}`}
-              handleClick={handleClick}
-              handleChange={handleChange}
-            />
-          ))}
-        </ul>
-      )}
-    </li>
+const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
+  const pathType = useLocation().pathname === "/" ? "sms" : "nms";
+  const [root, handleClickExpander, handleChangeChecked] = useResourceTree(
+    resources[pathType].ROOT
   );
-};
+  const { children: rootChildren } = root;
 
-const SelectResourceModal = ({ onToggleSelectModal }) => {
-  const [treeData, handleClickExpander, handleChangeChecked] =
-    useResourceTree(processedTreeData);
-  const treeRoot = treeData["ROOT"]["children"];
-  const [selectedResources, setSelectedResources] = useState([]);
+  const { selectedResources } = useSelectedResources(rootChildren);
+  const isValid = selectedResources.length > 0 && selectedResources.length < 5;
 
-  useEffect(() => {
-    if (!treeData) {
-      return;
-    }
-
-    const selectedData = [];
-    const root = treeData.ROOT.children;
-
-    const DFS = (v, title) => {
-      if (!v.checked) {
-        return;
-      }
-
-      if (!v.expandable && v.checked) {
-        selectedData.push(title);
-        return;
-      } else {
-        const { children } = v;
-        const childrenKeys = Object.keys(children);
-
-        for (let key of childrenKeys) {
-          DFS(children[key], `${title} > ${key}`);
-        }
-      }
-    };
-
-    Object.keys(root).forEach((key) => {
-      DFS(root[key], key);
-    });
-
-    setSelectedResources(selectedData);
-  }, [treeData]);
-
+  // 모달 닫기
   const backdropRef = useRef();
-  const handleClickBackdrop = ({ target }) => {
+  const handleCloseModal = ({ target }) => {
     const isBackground = target === backdropRef.current;
-    const button =
-      target.closest("button.cancel") || target.closest("button.close");
+    const closeButton = target.closest("button[data-close=true]");
 
-    if (!isBackground && !button) {
+    if (!isBackground && !closeButton) {
       return;
     }
 
-    onToggleSelectModal();
+    onToggleModal();
+  };
+
+  // 선택 버튼 클릭 -> 최종 선택
+  const handleSelectResource = () => {
+    if (!isValid) {
+      return;
+    }
+
+    setResources((resources) => ({
+      ...resources,
+      [pathType]: { ROOT: root },
+    }));
+
+    onToggleModal();
   };
 
   return (
     <div
       className={styles.backdrop}
-      onClick={handleClickBackdrop}
+      onClick={handleCloseModal}
       ref={backdropRef}
     >
       <div className={styles.modal}>
         <div className={styles.header}>
           <h3 className={styles.title}>리소스 선택</h3>
-          <Button
-            icon="close"
-            primary={true}
-            look="flat"
-            className="k-modal-header close"
-          />
+          <Button classToAdd="modal__close" data-close="true">
+            <SvgIcon icon={xIcon} />
+          </Button>
         </div>
         <div className={styles.tree}>
-          <ul className={styles.list}>
-            {Object.keys(treeRoot).map((rootKey) => (
-              <RenderTreeItem
-                key={treeRoot[rootKey].id}
-                treeItem={treeRoot[rootKey]}
-                itemKey={rootKey}
-                handleClick={handleClickExpander}
-                handleChange={handleChangeChecked}
-              />
-            ))}
-          </ul>
+          <CheckboxTree
+            list={rootChildren}
+            handleClick={handleClickExpander}
+            handleChange={handleChangeChecked}
+          />
         </div>
         <div className={styles.footer}>
-          <h4 className={styles.selected__title}>선택된 리소스</h4>
+          <h4 className={styles.selected__header}>
+            선택된 리소스
+            <span
+              className={`${styles.selected__header__noti} ${
+                !isValid && styles.visible
+              }`}
+            >
+              {selectedResources.length === 0 && "리소스를 선택해주세요"}
+              {selectedResources.length > 4 &&
+                "리소스는 최대 4개까지 선택할 수 있습니다"}
+            </span>
+          </h4>
           <div className={styles.selected__box}>
             <span className={styles.selected__text}>
-              {selectedResources[0]}
+              {!selectedResources.length ? (
+                "0 건"
+              ) : (
+                <>
+                  <span className={styles.selected__text__title}>
+                    {selectedResources[0].title}&nbsp;
+                  </span>
+                  {selectedResources.length > 1 && (
+                    <span className={styles.selected__text__cnt}>
+                      {`(외 ${selectedResources.length - 1}건)`}
+                    </span>
+                  )}
+                </>
+              )}
             </span>
-            (외{selectedResources.length}건)
+            <SvgIcon
+              icon={isValid ? checkOutlineIcon : exclamationCircleIcon}
+            />
           </div>
           <div className={styles.buttons}>
-            <Button
-              primary={true}
-              look="outline"
-              className="k-modal-footer cancel"
-            >
+            <Button classToAdd="modal__cancel" data-close="true">
               취소
             </Button>
-            <Button
-              primary={true}
-              look="outline"
-              className="k-modal-footer select"
-            >
+            <Button classToAdd="modal__select" onClick={handleSelectResource}>
               선택
             </Button>
           </div>
@@ -187,15 +118,10 @@ const SelectResourceModal = ({ onToggleSelectModal }) => {
   );
 };
 
-RenderTreeItem.propTypes = {
-  treeItem: PropTypes.object,
-  itemKey: PropTypes.string,
-  handleClick: PropTypes.func,
-  handleChange: PropTypes.func,
-};
-
 SelectResourceModal.propTypes = {
-  onToggleSelectModal: PropTypes.func,
+  onToggleModal: PropTypes.func,
+  resources: PropTypes.object,
+  setResources: PropTypes.func,
 };
 
-export default SelectResourceModal;
+export default React.memo(SelectResourceModal);

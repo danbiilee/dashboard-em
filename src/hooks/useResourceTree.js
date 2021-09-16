@@ -73,12 +73,11 @@ export const useResourceTree = (initialState) => {
           keys[lv] = Object.keys(v.children);
 
           while (keys[lv].length) {
-            const childKey = keys[lv].shift();
-
             if (bool) {
               break;
             }
 
+            const childKey = keys[lv].shift();
             search(lv + 1, childKey, v.children[childKey]);
           }
 
