@@ -4,7 +4,7 @@ import { ThemeProvider } from "../../context/Theme";
 import Header from "../../containers/Header";
 import SMS from "../../pages/SMS";
 import NMS from "../../pages/NMS";
-import { SelectResourceModal } from "../../components/SelectResource";
+import SelectResourceModal from "../SelectResource";
 import { useToggle } from "../../hooks/useToggle";
 
 const AppClient = () => {

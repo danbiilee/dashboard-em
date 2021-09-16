@@ -9,9 +9,9 @@ import styles from "../pages.module.scss";
 import { gridData } from "./TestData";
 import TrafficChart from "../../components/TrafficChart";
 import RTXButtons from "../../components/RTXButtons";
-import { SelectResourceButton } from "../../components/SelectResource";
 import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
+import Button from "../../components/Button";
 
 const NMSPage = ({ onToggleSelectModal }) => {
   const [selectedData, setSelectedData] = useState("RX");
@@ -61,11 +61,11 @@ const NMSPage = ({ onToggleSelectModal }) => {
             <div className={styles.title__container}>
               <Title name="트래픽 현황(Kbps)" />
               <div
-                className={`${styles.title__container__button} ${styles.resource} status`}
+                className={`${styles.title__container__button} ${styles.resource}`}
               >
-                <SelectResourceButton
-                  onToggleSelectModal={onToggleSelectModal}
-                />
+                <Button classToAdd="resource" onClick={onToggleModal}>
+                  리소스 선택
+                </Button>
               </div>
             </div>
             <div className={styles.nms__border__container}>
