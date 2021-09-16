@@ -1,0 +1,110 @@
+@import "Styles/variables.scss";
+
+.button {
+  height: 2rem;
+  padding: 0 0.8rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.25rem;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+  &:focus {
+    background-color: none;
+    color: var(--color-primary);
+    box-shadow: none;
+  }
+  &:hover,
+  &:active {
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+}
+
+.button + .button {
+  margin-left: 0.5rem;
+}
+
+.button span,
+.button svg,
+.button path {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.resource {
+  height: 2.5rem;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 0;
+  color: var(--modal-close);
+  &:focus,
+  &:hover,
+  &:active {
+    color: var(--modal-close);
+  }
+  &:hover {
+    background-color: var(--bg-modal-selected);
+  }
+  &:active {
+    background-color: var(--bg-dimmer);
+  }
+}
+
+.modal__close span {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.modal__cancel,
+.modal__select {
+  flex: 1;
+  height: 5.4rem;
+  line-height: 5.4rem;
+  font-size: 1.7rem;
+  &:first-of-type {
+    margin-right: $side-margin;
+  }
+}
+
+.modal__cancel {
+  border-color: var(--border-modal);
+  color: var(--modal-cancel);
+  &:focus {
+    color: var(--modal-cancel);
+  }
+  &:hover,
+  &:active {
+    background-color: var(--border-modal);
+    border-color: var(--border-modal);
+    color: var(--color-white);
+  }
+}
+
+.modal__select {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  &:focus {
+    color: var(--color-white);
+  }
+  &:hover,
+  &:active {
+    background-color: #2677c8;
+  }
+}
