@@ -107,3 +107,13 @@
   color: var(--modal-icon);
   font-size: 1.8rem;
 }
+.k-svg-i-exclamation-circle-icon,
+.k-svg-i-check-outline-icon {
+  font-size: 2.3rem;
+}
+.k-svg-i-exclamation-circle-icon {
+  color: var(--color-warning);
+}
+.k-svg-i-check-outline-icon {
+  color: var(--color-primary);
+}
