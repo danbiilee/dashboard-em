@@ -1,0 +1,30 @@
+@import "Styles/variables.scss";
+
+.list:not(.root) {
+  padding-left: $container-padding;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: $common-margin 0;
+  color: var(--modal-content);
+}
+
+.item + ul {
+  display: none;
+}
+
+.item__expanded + ul {
+  display: block;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+}
+
+.selector__title {
+  margin-top: 1px;
+  cursor: pointer;
+}
