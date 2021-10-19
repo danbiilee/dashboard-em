@@ -6,8 +6,9 @@
   height: 21.3%;
 }
 
-.chart_wrapper:nth-child(1):nth-last-child(4),
-.chart_wrapper:nth-child(1):nth-last-child(4) ~ .chart_wrapper {
+// 4개(최대)일 때만 적용
+.chart_wrapper:nth-last-child(n + 4),
+.chart_wrapper:nth-last-child(n + 4) ~ .chart_wrapper {
   flex: 1;
   height: 18%;
 }

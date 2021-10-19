@@ -92,11 +92,8 @@ const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
                   <span className={styles.selected__text__title}>
                     {selectedResources[0].title}&nbsp;
                   </span>
-                  {selectedResources.length > 1 && (
-                    <span className={styles.selected__text__cnt}>
-                      {`(외 ${selectedResources.length - 1}건)`}
-                    </span>
-                  )}
+                  {selectedResources.length > 1 &&
+                    `(외 ${selectedResources.length - 1}건)`}
                 </>
               )}
             </span>
