@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useLocalStorage } from "../../hooks";
 
-const LOCAL_STORAGE_THEME_NAME = "ems8-dashboard-theme";
-const THEME_TOGGLE_CLASS_NAME = "theme-dark";
+const LOCAL_STORAGE_THEME = "ems8-dashboard-theme";
+const THEME_TOGGLE_CLASS = "theme-dark";
 const THEME_LIGHT = "light";
 const THEME_DARK = "dark";
 
@@ -10,15 +11,18 @@ const ThemeContext = createContext();
 const ThemeUpdateContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const storedTheme =
-    window.localStorage.getItem(LOCAL_STORAGE_THEME_NAME) || THEME_LIGHT;
-  const [themeMode, setThemeMode] = useState(storedTheme);
+  const { storedStorage, setStorage } = useLocalStorage(
+    LOCAL_STORAGE_THEME,
+    THEME_LIGHT
+  );
+  const [themeMode, setThemeMode] = useState(storedStorage);
 
   useEffect(() => {
     if (themeMode === THEME_DARK) {
-      document.documentElement.classList.add(THEME_TOGGLE_CLASS_NAME);
+      document.documentElement.classList.add(THEME_TOGGLE_CLASS);
     }
-  }, [themeMode]);
+    setStorage(themeMode);
+  }, [themeMode, setStorage]);
 
   return (
     <ThemeContext.Provider value={themeMode}>
@@ -39,12 +43,10 @@ function useThemeToggle(themeMode) {
   const toggleTheme = () => {
     if (themeMode === THEME_LIGHT) {
       setThemeMode(THEME_DARK);
-      window.localStorage.setItem(LOCAL_STORAGE_THEME_NAME, THEME_DARK);
     } else {
       setThemeMode(THEME_LIGHT);
-      window.localStorage.setItem(LOCAL_STORAGE_THEME_NAME, THEME_LIGHT);
     }
-    document.documentElement.classList.toggle(THEME_TOGGLE_CLASS_NAME);
+    document.documentElement.classList.toggle(THEME_TOGGLE_CLASS);
   };
 
   return toggleTheme;
