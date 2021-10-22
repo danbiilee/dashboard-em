@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import styles from "./TrafficChart.module.scss";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { COLORS, defaultSeriesOptions, defaultOptions } from "./options";
+import { defaultSeriesOptions, defaultOptions } from "./options";
 import { useTheme } from "../../context/Theme";
+import { produce } from "immer";
+import { getCSSValue } from "../../utils";
 
 const TrafficChart = ({ data }) => {
   const { RESOURCE_NAME, LIST } = data;
   const [categories, setCategories] = useState([]);
-  const [series, setSeries] = useState([]);
+  const [series, setSeries] = useState([
+    { ...defaultSeriesOptions, name: "RX" },
+    { ...defaultSeriesOptions, name: "TX" },
+  ]);
   const [options, setOptions] = useState(defaultOptions);
   const themeMode = useTheme();
+
+  const makeSeriesColorChanged = useCallback((draft, key) => {
+    const series = draft.find((item) => item.name === key.toUpperCase());
+    series.color = getCSSValue(`--area-traffic-${key}`);
+    series.marker.lineColor = getCSSValue(`--line-traffic-${key}`);
+    return series;
+  }, []);
 
   useEffect(() => {
     const categories = [];
@@ -25,58 +37,50 @@ const TrafficChart = ({ data }) => {
     }
 
     setCategories(categories);
-    setSeries([
-      {
-        ...defaultSeriesOptions,
-        name: "RX",
-        color: COLORS.common.rx,
-        marker: {
-          ...defaultSeriesOptions.marker,
-          lineColor: COLORS.common.rx,
-        },
-        data: rx,
-      },
-      {
-        ...defaultSeriesOptions,
-        name: "TX",
-        color: COLORS.common.tx,
-        marker: {
-          ...defaultSeriesOptions.marker,
-          lineColor: COLORS.common.tx,
-        },
-        data: tx,
-      },
-    ]);
-  }, [LIST]);
+    setSeries(
+      produce((draft) => {
+        const rxSeries = makeSeriesColorChanged(draft, "rx");
+        const txSeries = makeSeriesColorChanged(draft, "tx");
+        rxSeries.data = rx;
+        txSeries.data = tx;
+      })
+    );
+    setOptions(
+      produce((draft) => {
+        const labelColor = getCSSValue("--font-label-traffic");
+        draft.xAxis.labels.style.color = labelColor;
+        draft.yAxis.labels.style.color = labelColor;
+      })
+    );
+  }, [LIST, makeSeriesColorChanged]);
 
   useEffect(() => {
     if (!categories.length || !series.length) {
       return;
     }
 
-    setOptions((prevState) => ({
-      ...prevState,
-      xAxis: {
-        ...prevState.xAxis,
-        categories,
-      },
-      series,
-    }));
+    setOptions(
+      produce((draft) => {
+        draft.xAxis.categories = categories;
+        draft.series = series;
+      })
+    );
   }, [categories, series]);
 
   useEffect(() => {
-    setOptions((prevState) => ({
-      ...prevState,
-      xAxis: {
-        ...prevState.xAxis,
-        lineColor: COLORS[themeMode].xAxis_line,
-      },
-      yAxis: {
-        ...prevState.yAxis,
-        gridLineColor: COLORS[themeMode].yAxis_grinLine,
-      },
-    }));
-  }, [themeMode]);
+    setOptions(
+      produce((draft) => {
+        draft.xAxis.lineColor = getCSSValue("--line-traffic-xAxis");
+        draft.yAxis.gridLineColor = getCSSValue("--line-traffic-yAxis-grid");
+      })
+    );
+    setSeries(
+      produce((draft) => {
+        makeSeriesColorChanged(draft, "rx");
+        makeSeriesColorChanged(draft, "tx");
+      })
+    );
+  }, [themeMode, makeSeriesColorChanged]);
 
   return (
     <div className={styles.chart_wrapper}>
