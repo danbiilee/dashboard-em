@@ -17,13 +17,13 @@
 }
 
 .input:checked + .label .checkbox {
-  background-color: var(--modal-checkbox);
+  background-color: var(--bg-checkbox);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23ffffff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
-  border-color: var(--modal-checkbox);
+  border-color: var(--bg-checkbox);
 }
 
 .checkbox.checkedSome {
-  background-color: var(--modal-checkbox-some);
+  background-color: var(--bg-checkbox-some);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23ffffff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
-  border-color: var(--modal-checkbox-some);
+  border-color: var(--bg-checkbox-some);
 }

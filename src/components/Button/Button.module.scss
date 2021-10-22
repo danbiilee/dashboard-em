@@ -52,14 +52,14 @@
   width: 4.2rem;
   height: 4.2rem;
   border: 0;
-  color: var(--modal-close);
+  color: var(--font-modal-close);
   &:focus,
   &:hover,
   &:active {
-    color: var(--modal-close);
+    color: var(--font-modal-close);
   }
   &:hover {
-    background-color: var(--bg-modal-selected);
+    background-color: var(--bg-modal-selected-box);
   }
   &:active {
     background-color: var(--bg-dimmer);
@@ -84,9 +84,9 @@
 
 .modal__cancel {
   border-color: var(--border-modal);
-  color: var(--modal-cancel);
+  color: var(--font-modal-cancel);
   &:focus {
-    color: var(--modal-cancel);
+    color: var(--font-modal-cancel);
   }
   &:hover,
   &:active {
@@ -104,6 +104,6 @@
   }
   &:hover,
   &:active {
-    background-color: #2677c8;
+    background-color: var(--bg-modal-selected-btn-hover);
   }
 }

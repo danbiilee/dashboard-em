@@ -47,7 +47,7 @@
     flex: 1;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #babecc;
+    border-bottom: 1px solid var(--border-primary);
     .count_title {
       font-size: $common-font-size + 0.6rem;
       color: var(--font-configuration-totalCount-title);
@@ -61,11 +61,10 @@
     }
   }
   .updown_count {
-    width: 100%;
     flex: 1;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #babecc;
+    border-bottom: 1px solid var(--border-primary);
     .updown_title {
       font-size: $common-font-size + 0.3rem;
       color: var(--font-configuration-updownCount-title);

@@ -96,15 +96,15 @@
   }
   &.k-svg-i-chevron-right-icon,
   &.k-svg-i-chevron-down-icon svg:hover {
-    color: var(--modal-collapsed-icon);
+    color: var(--icon-modal-collapsed);
   }
   &.k-svg-i-chevron-down-icon,
   &.k-svg-i-chevron-right-icon:hover {
-    color: var(--modal-expanded-icon);
+    color: var(--icon-modal-expanded);
   }
 }
 .tree__selector > .k-svg-icon {
-  color: var(--modal-icon);
+  color: var(--icon-modal);
   font-size: 1.8rem;
 }
 .k-svg-i-exclamation-circle-icon,
