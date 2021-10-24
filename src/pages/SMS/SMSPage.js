@@ -27,6 +27,7 @@ const SMSPage = () => {
             <RankGrid
               data={gridData.Rank_file_data}
               columns={gridData.fileSystemColumns}
+              type="파일시스템"
             />
           </div>
         </Top.Side>

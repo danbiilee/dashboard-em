@@ -11,7 +11,7 @@ import Critical from "../../assets/images/event-critical.png";
 const AlarmGrid = (props) => {
   const responseData = props;
   const [sort, setSort] = useState([{ field: "ProductName", dir: "asc" }]);
-  const severity = ({ dataItem }) => {
+  const severity = ({ dataItem, className }) => {
     const value = dataItem.ALARMSEVERITY;
     let stat;
     switch (value) {
@@ -26,23 +26,24 @@ const AlarmGrid = (props) => {
         break;
     }
     return (
-      <td>
-        <div className={styles.img_wrapper}>
-          <img className={styles.severity_img} src={stat} alt="alarm" />
-        </div>
+      <td className={className}>
+        <img className={styles.severity_img} src={stat} alt="alarm" />
       </td>
     );
   };
   const tooltipCall = (props) => {
     const formatData = props;
     return (
-      <td title={formatData.dataItem[formatData.field]}>
+      <td
+        title={formatData.dataItem[formatData.field]}
+        className={formatData.className}
+      >
         {formatData.dataItem[formatData.field]}
       </td>
     );
   };
   return (
-    <div id="alarmGrid" className={styles.alarmGrid_wrapper}>
+    <div className={`alarmGrid ${styles.alarmGrid_wrapper}`}>
       <Grid
         className={styles.alarmGrid}
         data={orderBy(responseData.data, sort)}

@@ -1,16 +1,23 @@
 // Size
 $common-padding: 1rem;
 $common-margin: 1rem;
+
 // Size - Container
-$side-margin: 1.5rem;
-$inner-margin: 0.7rem;
+$side-margin: 1.6rem;
+$inner-margin: 0.8rem;
 $container-padding: 2rem;
+
 // Size - Component
 $header-height: 5.6rem;
 $title-margin-bottom: 1.5rem;
 
-// Font Size
+// Size - Font
 $common-font-size: 1rem;
-$header-font-size: 1.5rem;
-$grid-font-size: 1.15rem;
-$rank-grid-font-size: 1.35rem;
+$header-font-size: 1.6rem;
+
+// 반응형 - 높이 1080px보다 작을 경우(125%까지 고려)
+@mixin underDefaultHeight {
+  @media (max-height: 1079px) {
+    @content;
+  }
+}

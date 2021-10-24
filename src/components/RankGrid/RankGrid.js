@@ -9,15 +9,11 @@ import "./RankGrid.scss";
 const RankGrid = (props) => {
   const responseData = props;
   const [sort, setSort] = useState([{ field: "ProductName", dir: "asc" }]);
-  const progressbar = ({ dataItem }) => {
+  const progressbar = ({ dataItem, className }) => {
     return (
-      <td className={styles.progress_wrapper}>
+      <td className={className}>
         <div className={styles.utilization}>
-          <ProgressBar
-            className={styles.progressbar}
-            value={dataItem.UTILIZATION}
-            labelVisible={false}
-          />
+          <ProgressBar value={dataItem.UTILIZATION} labelVisible={false} />
         </div>
         <div className={styles.val}>{dataItem.UTILIZATION}</div>
       </td>
@@ -26,15 +22,17 @@ const RankGrid = (props) => {
   const tooltipCall = (props) => {
     const formatData = props;
     return (
-      <td title={formatData.dataItem[formatData.field]}>
+      <td
+        title={formatData.dataItem[formatData.field]}
+        className={formatData.className}
+      >
         {formatData.dataItem[formatData.field]}
       </td>
     );
   };
   return (
-    <div id="rankGrid" className={styles.grid_wrapper}>
+    <div className={`rankGrid ${responseData.type === "파일시스템" && "fs"}`}>
       <Grid
-        className={styles.grid}
         data={orderBy(responseData.data, sort)}
         sortable
         sort={sort}
@@ -50,8 +48,8 @@ const RankGrid = (props) => {
               key={{ i }}
               field={d.field}
               title={d.title}
-              cell={d.title === "사용률(%)" ? progressbar : tooltipCall}
               className={d.className}
+              cell={d.title === "사용률(%)" ? progressbar : tooltipCall}
             />
           );
         })}

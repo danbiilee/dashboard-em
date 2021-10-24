@@ -15,13 +15,8 @@
   border: 1px solid var(--border-secondary);
   background-color: var(--bg-component);
   &.nms__chart__container {
-    flex-basis: 62rem;
+    flex-basis: inherit;
   }
-}
-.bottom__container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
 .title__container {
   position: relative;

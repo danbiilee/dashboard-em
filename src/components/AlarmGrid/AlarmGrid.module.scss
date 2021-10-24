@@ -1,20 +1,8 @@
-@import "Styles/variables.scss";
 .alarmGrid_wrapper {
-  max-height: 17.6rem;
+  max-height: 18rem;
   border-top: 1px solid var(--border-primary);
 }
-.alarmGrid {
-  li.k-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-.img_wrapper {
-  text-align: center;
-}
 .severity_img {
-  margin-top: $common-margin - 0.4rem;
   width: 1.3rem;
   height: 1.3rem;
 }
