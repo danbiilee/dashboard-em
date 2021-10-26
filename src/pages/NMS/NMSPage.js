@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import Main from "../../containers/Main";
 import Top from "../../containers/Main/Top";
 import Title from "../../components/Title";
 import AlarmGrid from "../../components/AlarmGrid";
 import RankGrid from "../../components/RankGrid";
 import styles from "../pages.module.scss";
-import { gridData } from "./TestData";
+import { gridData, chartData } from "./TestData";
 import TrafficChart from "../../components/TrafficChart";
 import RTXButtons from "../../components/RTXButtons";
-import { SelectResourceButton } from "../../components/SelectResource";
 import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
+import { useSelectedResources } from "../../hooks";
+import Button from "../../components/Button";
 
-const NMSPage = ({ onToggleSelectModal }) => {
-  const [selectedData, setSelectedData] = useState("RX");
-  const selectedResourceId = 1;
-  const chartGroups = gridData.trafficChartGroupData.find(
-    (item) => item.RESOURCE_ID === selectedResourceId
-  ).RESOURCE_GROUP_LIST;
+const NMSPage = ({ onToggleModal, resources }) => {
+  const [selectedData, setSelectedData] = useState("RX"); // 트래픽 사용률 TOP5
+
+  const pathType = useLocation().pathname === "/" ? "sms" : "nms";
+  const { selectedResources } = useSelectedResources(
+    resources[pathType].ROOT.children
+  ); // 트래픽 현황
+
+  const resourceIds = selectedResources.map((resource) => resource.id);
+  const chartGroups = chartData.trafficData.filter((item) =>
+    resourceIds.includes(item.RESOURCE_ID)
+  );
 
   return (
     <Main>
@@ -43,7 +51,7 @@ const NMSPage = ({ onToggleSelectModal }) => {
               </div>
             </div>
             <RankGrid
-              data={gridData.rankTrafficData[selectedData]}
+              data={gridData.trafficData[selectedData]}
               columns={gridData.trafficColumns}
             />
           </div>
@@ -61,16 +69,16 @@ const NMSPage = ({ onToggleSelectModal }) => {
             <div className={styles.title__container}>
               <Title name="트래픽 현황(Kbps)" />
               <div
-                className={`${styles.title__container__button} ${styles.resource} status`}
+                className={`${styles.title__container__button} ${styles.resource}`}
               >
-                <SelectResourceButton
-                  onToggleSelectModal={onToggleSelectModal}
-                />
+                <Button classToAdd="resource" onClick={onToggleModal}>
+                  리소스 선택
+                </Button>
               </div>
             </div>
             <div className={styles.nms__border__container}>
               {chartGroups.map((group) => (
-                <TrafficChart key={group.GROUP_ID} data={group} />
+                <TrafficChart key={group.RESOURCE_ID} data={group} />
               ))}
             </div>
           </div>
@@ -90,7 +98,8 @@ const NMSPage = ({ onToggleSelectModal }) => {
 };
 
 NMSPage.propTypes = {
-  onToggleSelectModal: PropTypes.func,
+  onToggleModal: PropTypes.func,
+  resources: PropTypes.object,
 };
 
 export default NMSPage;

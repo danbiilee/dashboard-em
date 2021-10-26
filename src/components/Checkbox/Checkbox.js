@@ -3,6 +3,16 @@ import PropTypes from "prop-types";
 import styles from "./Checkbox.module.scss";
 
 const Checkbox = ({ name, data, onChange, children }) => {
+  const { expandable, childrenCnt, checkedChildrenCnt } = data;
+  let checkboxClass = styles.checkbox;
+  if (
+    expandable &&
+    checkedChildrenCnt > 0 &&
+    childrenCnt !== checkedChildrenCnt
+  ) {
+    checkboxClass += ` ${styles.checkedSome}`;
+  }
+
   return (
     <>
       <input
@@ -14,7 +24,7 @@ const Checkbox = ({ name, data, onChange, children }) => {
         onChange={onChange}
       />
       <label htmlFor={data.id} className={styles.label}>
-        <span className={styles.checkbox}></span>
+        <span className={checkboxClass}></span>
         {children}
       </label>
     </>

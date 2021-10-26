@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button } from "@progress/kendo-react-buttons";
+import Button from "../Button";
 
 const RTXButtons = ({ selectedData, setSelectedData }) => {
   const onClick = ({ currentTarget: { innerText } }) => {
@@ -10,17 +10,13 @@ const RTXButtons = ({ selectedData, setSelectedData }) => {
   return (
     <>
       <Button
-        className={selectedData === "RX" && "selected"}
-        primary={true}
-        look="outline"
+        classToAdd={selectedData === "RX" ? "selected" : ""}
         onClick={onClick}
       >
         RX
       </Button>
       <Button
-        className={selectedData === "TX" && "selected"}
-        primary={true}
-        look="outline"
+        classToAdd={selectedData === "TX" ? "selected" : ""}
         onClick={onClick}
       >
         TX

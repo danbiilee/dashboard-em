@@ -54,8 +54,6 @@
   --bg-progress: #e2e6ed;
   --line-rx: #02bcd5; // 트래픽 현황 rx, tx 라인 2px
   --line-tx: #506cf6;
-  --area-rx: rgba(var(--line-rx), 0.3); // 트래픽 현황 rx, tx area
-  --area-tx: rgba(var(--line-tx), 0.3);
 
   // Modal
   --modal-base: #5f698d;
@@ -64,9 +62,11 @@
   --modal-content: var(--color-navy);
   --modal-selected: var(--modal-base);
   --modal-cancel: var(--modal-base);
+  --modal-checkbox: var(--color-primary);
+  --modal-checkbox-some: #96c3f0;
   --bg-dimmer: #aeb3c660;
   --bg-modal: var(--color-white);
-  --bg-modal-seleted: #eef1f4;
+  --bg-modal-selected: #eef1f4;
   --border-checkbox: #6b757e;
   --border-modal: var(--color-gray);
   --border-modal-wrapper: 0;
@@ -131,9 +131,11 @@
   --modal-content: #e3e6e6;
   --modal-selected: var(--font-contents);
   --modal-cancel: #9a9b9b;
+  --modal-checkbox: var(--color-primary);
+  --modal-checkbox-some: #96c3f0;
   --bg-dimmer: #1f212290;
   --bg-modal: #242527;
-  --bg-modal-seleted: #343435;
+  --bg-modal-selected: #343435;
   --border-checkbox: #6b757e;
   --border-modal: var(--modal-base);
   --border-modal-wrapper: 1px solid var(--modal-base);

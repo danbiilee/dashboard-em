@@ -1,9 +1,15 @@
 @import "Styles/variables.scss";
 
 .chart_wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  height: 21.3%;
+}
+
+// 4개(최대)일 때만 적용
+.chart_wrapper:nth-last-child(n + 4),
+.chart_wrapper:nth-last-child(n + 4) ~ .chart_wrapper {
+  flex: 1;
   height: 18%;
 }
 
