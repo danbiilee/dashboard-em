@@ -1,7 +1,7 @@
 @import "Styles/variables.scss";
 
 .title {
-  margin-bottom: $title-margin-bottom;
+  margin-bottom: $title-margin-bottom - 0.5rem;
   font-size: $header-font-size;
 }
 

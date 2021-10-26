@@ -25,7 +25,6 @@ const RankGrid = (props) => {
   };
   const tooltipCall = (props) => {
     const formatData = props;
-    console.log(props);
     return (
       <td title={formatData.dataItem[formatData.field]}>
         {formatData.dataItem[formatData.field]}
