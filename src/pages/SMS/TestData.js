@@ -200,4 +200,37 @@ export const gridData = {
       DETAIL: "업무서비스 응답시간 지연[2.0ms(>0.1ms, 2회 연속)]",
     },
   ],
+  columnChartGroupData: [
+    {
+      RESOURCE_ID: 1,
+      RESOURCE_NAME: "COLUMN",
+      RESOURCE_GROUP_LIST: [
+        {
+          GROUP_ID: 1,
+          GROUP_NAME: "/root",
+          DATA: 100,
+        },
+        {
+          GROUP_ID: 2,
+          GROUP_NAME: "user",
+          DATA: 80,
+        },
+        {
+          GROUP_ID: 3,
+          GROUP_NAME: "etc",
+          DATA: 70,
+        },
+        {
+          GROUP_ID: 4,
+          GROUP_NAME: "bar",
+          DATA: 60,
+        },
+        {
+          GROUP_ID: 5,
+          GROUP_NAME: "/tmp",
+          DATA: 60,
+        },
+      ],
+    },
+  ],
 };

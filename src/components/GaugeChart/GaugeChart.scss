@@ -1,0 +1,26 @@
+#gaugeChart {
+  .highcharts-text-outline {
+    stroke: transparent !important;
+    fill: transparent;
+  }
+  .highcharts-root {
+    font-family: "KoPub Dotum" !important;
+  }
+  text {
+    text-anchor: middle;
+  }
+  #cpuValue {
+    fill: var(--font-contents-bold);
+    font-size: 2.5rem;
+  }
+  #cpuName {
+    fill: var(--font-contents);
+    font-size: 1.4rem;
+  }
+  .highcharts-text-outline {
+    display: none;
+  }
+  .highcharts-tooltip {
+    opacity: 0;
+  }
+}

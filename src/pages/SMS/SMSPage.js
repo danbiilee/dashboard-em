@@ -8,8 +8,14 @@ import AlarmGrid from "../../components/AlarmGrid";
 import { gridData } from "./TestData";
 import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
+import Item from "../../containers/Main/Top/Center/Item";
 
 const SMSPage = () => {
+  const selectedResourceId = 1;
+  const chartGroups = gridData.columnChartGroupData.find(
+    (item) => item.RESOURCE_ID === selectedResourceId
+  ).RESOURCE_GROUP_LIST;
+  const DDDD = [0, 50, 80, 100];
   return (
     <Main>
       <Main.Top>
@@ -35,12 +41,18 @@ const SMSPage = () => {
           <div className={styles.sms__center__container}>
             <Title name="서버운영현황" />
             <div className={styles.sms__center__items}>
-              {/* <div className={styles.sms__center__item}>[0,0]</div>
-              <div className={styles.sms__center__item}>[0,1]</div> */}
+              <span className={styles.sms__center__item}>
+                <Item data={chartGroups} gauge={DDDD[0]} />
+              </span>
+              <span className={styles.sms__center__item}>
+                <Item data={chartGroups} gauge={DDDD[1]} />
+              </span>
+              {/* <Item data={chartGroups} gauge={DDDD[0]} /> */}
+              {/* <Item data={chartGroups} gauge={DDDD[1]} /> */}
             </div>
             <div className={styles.sms__center__items}>
-              {/* <div className={styles.sms__center__item}>[1,0]</div>
-              <div className={styles.sms__center__item}>[1,1]</div> */}
+              <Item data={chartGroups} gauge={DDDD[2]} />
+              <Item data={chartGroups} gauge={DDDD[3]} />
             </div>
           </div>
         </Top.Center>
