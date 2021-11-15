@@ -7,12 +7,15 @@
   background-color: transparent;
   font-family: "KoPub Dotum";
   font-weight: bold;
-  font-size: $grid-font-size;
+  font-size: 1.2rem;
+  table {
+    height: 100%;
+  }
   .k-grid-header {
+    color: var(--font-contents);
     padding: 0px !important;
     background-color: var(--bg-component);
     border-color: var(--border-primary);
-    color: var(--font-grid-header);
     thead {
       text-align: center;
       th {
@@ -38,23 +41,29 @@
 
 // Progress Bar
 .k-progressbar {
+  width: 100%;
+  height: 0.8rem;
   border-radius: 0;
+  background-color: var(--bg-progress);
+  .k-state-selected {
+    background-color: var(--color-primary);
+  }
 }
 
-// Switch - Header
+// Switch
 .k-switch {
-  width: 22px;
-  height: 11px;
+  width: 2.2rem;
+  height: 1.1rem;
   margin-top: -1px;
   .k-switch-container {
     display: flex;
     align-items: center;
-    width: 22px;
+    width: 2.2rem;
   }
 }
 .k-switch-handle {
-  width: 7px;
-  height: 7px;
+  width: 0.7rem;
+  height: 0.7rem;
 }
 .k-switch-container,
 .k-switch-handle {
@@ -66,7 +75,7 @@
     border-color: var(--color-primary);
   }
   .k-switch-handle {
-    left: 10px;
+    left: 1rem;
   }
 }
 .k-switch-off {
@@ -96,15 +105,15 @@
   }
   &.k-svg-i-chevron-right-icon,
   &.k-svg-i-chevron-down-icon svg:hover {
-    color: var(--modal-collapsed-icon);
+    color: var(--icon-modal-collapsed);
   }
   &.k-svg-i-chevron-down-icon,
   &.k-svg-i-chevron-right-icon:hover {
-    color: var(--modal-expanded-icon);
+    color: var(--icon-modal-expanded);
   }
 }
 .tree__selector > .k-svg-icon {
-  color: var(--modal-icon);
+  color: var(--icon-modal);
   font-size: 1.8rem;
 }
 .k-svg-i-exclamation-circle-icon,

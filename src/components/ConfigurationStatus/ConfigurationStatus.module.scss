@@ -2,20 +2,23 @@
 .wrapper {
   height: 100%;
   display: flex;
-  padding: $common-padding + 0.7rem;
+  justify-content: space-between;
+  padding: 2rem 3rem;
   border: 1px solid var(--border-primary);
   background-color: var(--bg-server-memory-component);
 }
 //이미지, 타이틀
 .left_wrapper {
+  flex: 0 0 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .image {
-  width: 88%;
-  height: 57.1%;
+  width: 6.9rem;
+  height: 100%;
+  max-height: 8rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -39,15 +42,14 @@
 }
 //총장비수, UP, DOWN
 .right_wrapper {
-  flex: 1;
-  padding: 0.5rem 1rem 0.5rem 3rem;
+  flex: 0 0 18.4rem;
   display: flex;
   flex-direction: column;
   .total_count_wrapper {
     flex: 1;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #babecc;
+    border-bottom: 1px solid var(--border-primary);
     .count_title {
       font-size: $common-font-size + 0.6rem;
       color: var(--font-configuration-totalCount-title);
@@ -61,11 +63,10 @@
     }
   }
   .updown_count {
-    width: 100%;
     flex: 1;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #babecc;
+    border-bottom: 1px solid var(--border-primary);
     .updown_title {
       font-size: $common-font-size + 0.3rem;
       color: var(--font-configuration-updownCount-title);
@@ -77,5 +78,14 @@
       font-size: $common-font-size + 0.5rem;
       color: var(--font-configuration-updownCount);
     }
+  }
+}
+
+@include underDefaultHeight {
+  .right_wrapper .total_count_wrapper .count_number {
+    font-size: 2.4rem;
+  }
+  .title {
+    font-size: 1.4rem;
   }
 }

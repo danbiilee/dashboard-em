@@ -85,13 +85,8 @@ const NMSPage = ({ onToggleModal, resources }) => {
         </Top.Side>
       </Main.Top>
       <Main.Bottom>
-        <div className={styles.bottom__container}>
-          <Title name="알람콘솔" />
-          <AlarmGrid
-            data={gridData.alarmData}
-            columns={gridData.alarmColumns}
-          />
-        </div>
+        <Title name="알람콘솔" />
+        <AlarmGrid data={gridData.alarmData} columns={gridData.alarmColumns} />
       </Main.Bottom>
     </Main>
   );

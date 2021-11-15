@@ -1,39 +1,41 @@
 @import "Styles/variables.scss";
 
-#rankGrid {
-  .k-grid-content {
-    margin-top: $common-margin;
-  }
+.rankGrid {
+  height: 100%;
   .k-grid-header {
-    line-height: 2.9rem;
-    & col:nth-of-type(1) {
-      width: 3rem;
-    }
-    & col:nth-of-type(2) {
-      width: 10rem;
-    }
-    & col:nth-of-type(3) {
-      width: 10rem;
-    }
+    line-height: 2.5rem;
     th {
       border-width: 0;
     }
   }
-  .k-grid-table {
-    & col:nth-of-type(1) {
-      width: 3rem;
-    }
-    & col:nth-of-type(2) {
-      width: 10rem;
-    }
-    & col:nth-of-type(3) {
-      width: 10rem;
-    }
+  .k-grid-header col:nth-of-type(1),
+  .k-grid-table col:nth-of-type(1) {
+    width: 3%;
+  }
+  .k-grid-header col:nth-of-type(2),
+  .k-grid-table col:nth-of-type(2) {
+    width: 23%;
+  }
+  .k-grid-header col:nth-of-type(3),
+  .k-grid-table col:nth-of-type(3) {
+    width: 20%;
+  }
+  // 파일시스템
+  &.fs .k-grid-header col:nth-of-type(1),
+  &.fs .k-grid-table col:nth-of-type(1) {
+    width: 6%;
+  }
+  &.fs .k-grid-header col:nth-of-type(2),
+  &.fs .k-grid-table col:nth-of-type(2),
+  &.fs .k-grid-header col:nth-of-type(3),
+  &.fs .k-grid-table col:nth-of-type(3) {
+    width: 30%;
   }
   .k-grid-content {
     display: grid;
     grid-template-rows: 1fr;
-    font-size: $rank-grid-font-size;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
     .k-master-row {
       background-color: transparent !important;
     }
@@ -42,6 +44,30 @@
       &:is(.no, .utilization) {
         text-align: center;
       }
+      &.no {
+        padding: 0;
+      }
+      &.utilization {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+@include underDefaultHeight {
+  .rankGrid {
+    .k-grid-header {
+      line-height: 2.3rem;
+    }
+    .k-grid-content {
+      margin-top: 0.3rem;
+      font-size: 1.2rem;
+    }
+    .k-master-row {
+      line-height: 1.4;
     }
   }
 }

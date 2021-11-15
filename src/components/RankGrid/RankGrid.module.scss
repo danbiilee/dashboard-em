@@ -1,44 +1,13 @@
 @import "Styles/variables.scss";
 
-//그리드 css
-.grid_wrapper {
-  height: 100%;
-}
-.grid {
-  table {
-    height: 100%;
-  }
-  li.k-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
 // 사용률 css
-.progress_wrapper {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
 .utilization {
   flex: 1;
   margin-right: $common-margin;
 }
-.progressbar {
-  display: flex;
-  height: 8px;
-  border-color: rgba(18, 47, 65, 0.08);
-  background-color: var(--bg-progress); // 디폴트 100% 바 색상
-  width: 100%;
-  span {
-    width: 0%;
-  }
-  div {
-    background-color: var( --color-primary) !important;
-  }
-}
 .val {
   width: 3rem;
+  margin-top: 0.2rem;
   color: var(--font-contents);
   text-align: right;
 }

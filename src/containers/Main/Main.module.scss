@@ -9,8 +9,8 @@
 }
 
 .top {
+  flex: 1;
   display: flex;
-  flex: 1 1 auto;
   margin-bottom: $inner-margin;
 }
 
@@ -20,9 +20,9 @@
 }
 
 .top__center {
+  flex: 2;
   display: flex;
   flex-direction: column;
-  flex: 2;
   margin: 0 $inner-margin;
   border: 1px solid var(--border-secondary);
   background-color: var(--bg-component);
@@ -31,7 +31,7 @@
 .bottom {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  height: fit-content;
   border: 1px solid var(--border-secondary);
   background-color: var(--bg-component);
 }

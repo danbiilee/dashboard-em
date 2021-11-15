@@ -33,6 +33,7 @@ const SMSPage = () => {
             <RankGrid
               data={gridData.Rank_file_data}
               columns={gridData.fileSystemColumns}
+              type="파일시스템"
             />
           </div>
         </Top.Side>
@@ -80,13 +81,8 @@ const SMSPage = () => {
         </Top.Side>
       </Main.Top>
       <Main.Bottom>
-        <div className={styles.bottom__container}>
-          <Title name="알람콘솔" />
-          <AlarmGrid
-            data={gridData.AlarmData}
-            columns={gridData.alarmColumns}
-          />
-        </div>
+        <Title name="알람콘솔" />
+        <AlarmGrid data={gridData.AlarmData} columns={gridData.alarmColumns} />
       </Main.Bottom>
     </Main>
   );

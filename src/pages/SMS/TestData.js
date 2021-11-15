@@ -1,6 +1,6 @@
 export const gridData = {
   fileSystemColumns: [
-    { field: "NO", title: "NO", width: "30", className: "no" },
+    { field: "NO", title: "No", width: "20", className: "no" },
     { field: "SERVICE", title: "서비스", width: "120", className: "service" },
     {
       field: "SERVERNAME",
@@ -11,7 +11,7 @@ export const gridData = {
     { field: "UTILIZATION", title: "사용률(%)", className: "utilization" },
   ],
   serverColumns: [
-    { field: "NO", title: "NO", width: "30", className: "no" },
+    { field: "NO", title: "No", width: "20", className: "no" },
     {
       field: "SERVERNAME",
       title: "장비명",
@@ -36,7 +36,7 @@ export const gridData = {
     },
     {
       field: "IP",
-      title: "ip",
+      title: "IP",
       width: "120",
       className: "ip",
     },
