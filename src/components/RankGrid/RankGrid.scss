@@ -1,9 +1,7 @@
 @import "Styles/variables.scss";
 
-#rankGrid {
-  .k-grid-content {
-    margin-top: $common-margin;
-  }
+.rankGrid {
+  height: 100%;
   .k-grid-header {
     line-height: 2.5rem;
     th {
