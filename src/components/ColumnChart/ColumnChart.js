@@ -5,7 +5,9 @@ import HighchartsReact from "highcharts-react-official";
 import styles from "./ColumnChart.module.scss";
 import "./ColumnChart.scss";
 import { useTheme } from "../../context/Theme";
-import { LINE_COLORS, defaultSeriesOptions, defaultOptions } from "./options";
+import { defaultSeriesOptions, defaultOptions } from "./options";
+import { produce } from "immer";
+import { getCSSValue } from "../../utils";
 
 const ColumnChart = ({ title, data }) => {
   const { LIST } = data;
@@ -13,6 +15,7 @@ const ColumnChart = ({ title, data }) => {
   const [series, setSeries] = useState([]);
   const [options, setOptions] = useState(defaultOptions);
   const themeMode = useTheme();
+
   useEffect(() => {
     const formatData = data.reduce(
       (acc, cur) => {
@@ -40,7 +43,7 @@ const ColumnChart = ({ title, data }) => {
       {
         ...defaultSeriesOptions,
         name: "사용률",
-        color: LINE_COLORS.utilization,
+        color: getCSSValue(`--bar-series`),
         data: formatData.utilization,
       },
     ]);
@@ -50,41 +53,24 @@ const ColumnChart = ({ title, data }) => {
     if (!categories.length || !series.length) {
       return;
     }
-    setOptions((prevState) => ({
-      ...prevState,
-      title: {
-        text: title,
-        align: "center",
-      },
-      xAxis: {
-        categories,
-      },
-      series,
-    }));
+    setOptions(
+      produce((draft) => {
+        draft.title.text = title;
+        draft.xAxis.categories = categories;
+        draft.series = series;
+      })
+    );
   }, [categories, series, title]);
 
   useEffect(() => {
-    setOptions((prevState) => ({
-      ...prevState,
-      xAxis: {
-        ...prevState.xAxis,
-        lineColor: LINE_COLORS[themeMode].xAxis_line,
-      },
-      title: {
-        ...prevState.title,
-        style: {
-          color: LINE_COLORS[themeMode].chart_title,
-        },
-      },
-      plotOptions: {
-        series: {
-          dataLabels: {
-            ...prevState.plotOptions.series.dataLabels,
-            color: LINE_COLORS[themeMode].value,
-          },
-        },
-      },
-    }));
+    setOptions(
+      produce((draft) => {
+        draft.title.style.color = getCSSValue(`--bar-title`);
+        draft.xAxis.lineColor = getCSSValue(`--bar-xAxis`);
+        draft.xAxis.labels.style.color = getCSSValue(`--bar-label`);
+        draft.plotOptions.series.dataLabels.color = getCSSValue(`--bar-label`);
+      })
+    );
   }, [themeMode]);
 
   return (

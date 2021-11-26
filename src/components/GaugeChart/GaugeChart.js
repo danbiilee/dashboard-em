@@ -7,7 +7,9 @@ import solidGauge from "highcharts/modules/solid-gauge";
 import styles from "./GaugeChart.module.scss";
 import "./GaugeChart.scss";
 import { useTheme } from "../../context/Theme";
-import { borderOptions, defaultOptions, COLORS } from "./options";
+import { borderOptions, defaultOptions } from "./options";
+import { produce } from "immer";
+import { getCSSValue } from "../../utils";
 
 highchartsMore(Highcharts);
 solidGauge(Highcharts);
@@ -17,6 +19,7 @@ const GaugeChart = (props) => {
   const [options, setOptions] = useState(defaultOptions);
   const [border_options, setBorderOptions] = useState(borderOptions);
   const themeMode = useTheme();
+
   // useEffect(() => {
   //   setInterval(() => {
   //     setValue(Math.ceil(Math.random() * 100));
@@ -36,32 +39,31 @@ const GaugeChart = (props) => {
   }, [props.data]);
 
   useEffect(() => {
-    setBorderOptions((prevState) => ({
-      ...prevState,
-      yAxis: {
-        plotBands: {
-          ...prevState.yAxis.plotBands,
-          color: COLORS[themeMode].center_border,
-        },
-      },
-    }));
+    setBorderOptions(
+      produce((draft) => {
+        draft.yAxis.plotBands.color = getCSSValue("--gauge-yAxis");
+      })
+    );
+
     setOptions((prevState) => ({
       ...prevState,
       plotOptions: {
         gauge: {
           dial: {
             ...prevState.plotOptions.gauge.dial,
-            backgroundColor: COLORS[themeMode].gauge_pointer,
+            backgroundColor: getCSSValue("--gauge-dial-pointer"),
+            borderColor: getCSSValue("--gauge-dial-pointer-border"),
           },
         },
       },
       yAxis: {
         ...prevState.yAxis,
-        minorTickColor: COLORS[themeMode].tick_color,
-        tickColor: COLORS[themeMode].tick_color,
+        minorTickColor: getCSSValue("--gauge-yAxis-tick"),
+        tickColor: getCSSValue("--gauge-yAxis-tick"),
       },
     }));
   }, [themeMode]);
+
   return (
     <div id="gaugeChart" className={styles.wrapper}>
       <HighchartsReact

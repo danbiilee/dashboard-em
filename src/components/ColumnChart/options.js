@@ -1,17 +1,3 @@
-export const LINE_COLORS = {
-  utilization: "#2988e6",
-  light: {
-    chart_title: "#1B2E68", //FILE SYSTEM TOP5 타이틀
-    xAxis_line: "#6B7389", // x축 라인 색상
-    value: "#1B2E68", // 장비명, % 값 색상
-  },
-  dark: {
-    chart_title: "#B3B4B5",
-    xAxis_line: "#414142",
-    value: "#9A9B9B",
-  },
-};
-
 export const defaultSeriesOptions = {
   name: "",
   color: "",
@@ -22,18 +8,18 @@ export const defaultOptions = {
   chart: {
     type: "column",
     backgroundColor: "transparent",
+    margin: [53, 8, 23, 13],
+    style: {
+      fontFamily: "KoPub Dotum",
+    },
   },
   title: {
     text: "",
-    align: "",
-  },
-  rules: [
-    {
-      condition: {
-        maxWidth: "100%",
-      },
+    align: "center",
+    style: {
+      fontSize: "1.4rem",
     },
-  ],
+  },
   credits: {
     enabled: false,
   },
@@ -49,6 +35,12 @@ export const defaultOptions = {
     gridLineColor: "transparent",
   },
   xAxis: {
+    labels: {
+      y: 15,
+      style: {
+        color: "",
+      },
+    },
     categories: [],
   },
   legend: {
@@ -56,13 +48,13 @@ export const defaultOptions = {
   },
   plotOptions: {
     series: {
-      color: "#2988E6",
       pointWidth: 15,
       dataLabels: {
         enabled: true,
         format: "<b>{point.y}%</b>",
         crop: false,
         overflow: "none",
+        y: 3,
         style: {
           textShadow: false,
           textOutline: 0,
