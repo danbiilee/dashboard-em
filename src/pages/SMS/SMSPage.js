@@ -41,18 +41,9 @@ const SMSPage = () => {
           <div className={styles.sms__center__container}>
             <Title name="서버운영현황" />
             <div className={styles.sms__center__items}>
-              <span className={styles.sms__center__item}>
-                <Item data={chartGroups} gauge={DDDD[0]} />
-              </span>
-              <span className={styles.sms__center__item}>
-                <Item data={chartGroups} gauge={DDDD[1]} />
-              </span>
-              {/* <Item data={chartGroups} gauge={DDDD[0]} /> */}
-              {/* <Item data={chartGroups} gauge={DDDD[1]} /> */}
-            </div>
-            <div className={styles.sms__center__items}>
-              <Item data={chartGroups} gauge={DDDD[2]} />
-              <Item data={chartGroups} gauge={DDDD[3]} />
+              {DDDD.map((item, i) => (
+                <Item key={i} data={chartGroups} gauge={item} />
+              ))}
             </div>
           </div>
         </Top.Center>

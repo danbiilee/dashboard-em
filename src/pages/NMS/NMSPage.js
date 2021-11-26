@@ -14,6 +14,7 @@ import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
 import { useSelectedResources } from "../../hooks";
 import Button from "../../components/Button";
+import Topology from "../../components/Topology/Topology";
 
 const NMSPage = ({ onToggleModal, resources }) => {
   const [selectedData, setSelectedData] = useState("RX"); // 트래픽 사용률 TOP5
@@ -57,9 +58,11 @@ const NMSPage = ({ onToggleModal, resources }) => {
           </div>
         </Top.Side>
         <Top.Center>
-          <div className={styles.sms__center__container}>
+          <div className={styles.nms__center__container}>
             <Title name="Topology MAP" />
-            <div className={styles.nms__border__container}></div>
+            <div className={styles.nms__border__container}>
+              <Topology />
+            </div>
           </div>
         </Top.Center>
         <Top.Side>
