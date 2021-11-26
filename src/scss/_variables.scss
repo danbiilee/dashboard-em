@@ -15,9 +15,22 @@ $title-margin-bottom: 1.5rem;
 $common-font-size: 1rem;
 $header-font-size: 1.6rem;
 
-// 반응형 - 높이 1080px보다 작을 경우(125%까지 고려)
-@mixin underDefaultHeight {
-  @media (max-height: 1079px) {
+// 100%
+@mixin lowerHeightAtRatio100 {
+  @media screen and (-webkit-device-pixel-ratio: 1) and (max-height: 1079px) {
+    @content;
+  }
+}
+
+// 125%
+@mixin atRatio125 {
+  @media screen and (-webkit-device-pixel-ratio: 1.25) {
+    @content;
+  }
+}
+
+@mixin lowerHeightatRatio125 {
+  @media screen and (-webkit-device-pixel-ratio: 1.25) and (max-height: 863px) {
     @content;
   }
 }

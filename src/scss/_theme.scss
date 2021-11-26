@@ -31,8 +31,6 @@
   --icon-modal: #5aa954;
   --icon-modal-expanded: var(--color-modal);
   --icon-modal-collapsed: var(--color-gray);
-  --font-label-traffic: #575b5d; // 차트
-  --font-label-bar: var(--color-navy);
 
   // Background
   --bg-container: #e0e3ed;
@@ -65,12 +63,25 @@
   --border-checkbox: #6b757e;
 
   // Chart - Area(트래픽)
-  --line-traffic-xAxis: #ccd6eb;
-  --line-traffic-yAxis-grid: #e6e6e6;
-  --line-traffic-rx: #02bcd5;
-  --line-traffic-tx: #506cf6;
-  --area-traffic-rx: var(--line-traffic-rx);
-  --area-traffic-tx: var(--line-traffic-tx);
+  --traffic-label: #575b5d;
+  --traffic-xAxis: #ccd6eb;
+  --traffic-yAxis-grid: #e6e6e6;
+  --traffic-line-rx: #02bcd5;
+  --traffic-line-tx: #506cf6;
+  --traffic-area-rx: var(--traffic-line-rx);
+  --traffic-area-tx: var(--traffic-line-tx);
+
+  // Chart - Bar(서버운영현황)
+  --bar-title: var(--color-navy);
+  --bar-label: var(--color-navy);
+  --bar-xAxis: #6b7389;
+  --bar-series: #2988e6;
+
+  // Chart - Gauge
+  --gauge-yAxis: #f3f3f3;
+  --gauge-yAxis-tick: #d6d6d6;
+  --gauge-dial-pointer: #ffffff;
+  --gauge-dial-pointer-border: #00000030;
 }
 
 .theme-dark {
@@ -96,8 +107,6 @@
   --icon-modal: #5aa954;
   --icon-modal-expanded: var(--color-gray);
   --icon-modal-collapsed: var(--color-modal);
-  --font-label-traffic: #575b5d; // 차트
-  --font-label-bar: #9a9b9b;
 
   // Background
   --bg-container: #080808;
@@ -129,10 +138,23 @@
   --border-checkbox: #6b757e;
 
   // Chart - Area(트래픽)
-  --line-traffic-xAxis: #4c4c4c;
-  --line-traffic-yAxis-grid: #4c4c4c;
-  --line-traffic-rx: #43ffb7;
-  --line-traffic-tx: #26b4ff;
-  --area-traffic-rx: var(--line-traffic-rx);
-  --area-traffic-tx: var(--line-traffic-tx);
+  --traffic-label: #575b5d;
+  --traffic-xAxis: #4c4c4c;
+  --traffic-yAxis-grid: #4c4c4c;
+  --traffic-line-rx: #43ffb7;
+  --traffic-line-tx: #26b4ff;
+  --traffic-area-rx: var(--traffic-line-rx);
+  --traffic-area-tx: var(--traffic-line-tx);
+
+  // Chart - Bar(서버운영현황)
+  --bar-title: #b3b4b5;
+  --bar-label: #9a9b9b;
+  --bar-xAxis: #414142;
+  --bar-series: #2988e6;
+
+  // Chart - Gauge
+  --gauge-yAxis: #3f3f3f;
+  --gauge-yAxis-tick: #3b3b3b;
+  --gauge-dial-pointer: #55555c;
+  --gauge-dial-pointer-border: #00000030;
 }
