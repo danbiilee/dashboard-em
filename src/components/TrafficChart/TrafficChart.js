@@ -20,8 +20,8 @@ const TrafficChart = ({ data }) => {
 
   const makeSeriesColorChanged = useCallback((draft, key) => {
     const series = draft.find((item) => item.name === key.toUpperCase());
-    series.color = getCSSValue(`--area-traffic-${key}`);
-    series.marker.lineColor = getCSSValue(`--line-traffic-${key}`);
+    series.color = getCSSValue(`--traffic-area-${key}`);
+    series.marker.lineColor = getCSSValue(`--traffic-line-${key}`);
     return series;
   }, []);
 
@@ -47,7 +47,7 @@ const TrafficChart = ({ data }) => {
     );
     setOptions(
       produce((draft) => {
-        const labelColor = getCSSValue("--font-label-traffic");
+        const labelColor = getCSSValue("--traffic-label");
         draft.xAxis.labels.style.color = labelColor;
         draft.yAxis.labels.style.color = labelColor;
       })
@@ -70,8 +70,8 @@ const TrafficChart = ({ data }) => {
   useEffect(() => {
     setOptions(
       produce((draft) => {
-        draft.xAxis.lineColor = getCSSValue("--line-traffic-xAxis");
-        draft.yAxis.gridLineColor = getCSSValue("--line-traffic-yAxis-grid");
+        draft.xAxis.lineColor = getCSSValue("--traffic-xAxis");
+        draft.yAxis.gridLineColor = getCSSValue("--traffic-yAxis-grid");
       })
     );
     setSeries(

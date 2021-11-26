@@ -18,6 +18,9 @@ export const defaultOptions = {
     type: "area",
     margin: [10, 8, 23, 35],
     backgroundColor: "transparent",
+    style: {
+      fontFamily: "KoPub Dotum",
+    },
   },
   credits: {
     enabled: false,
