@@ -1,3 +1,5 @@
+@import "Styles/variables.scss";
+
 .alarmGrid {
   .k-grid-header {
     line-height: 2.7rem;
@@ -29,14 +31,11 @@
   .k-grid-table col:nth-of-type(6) {
     width: 32rem;
   }
-  .k-grid-container {
-    .k-master-row {
-      background-color: var(--bg-grid-row-odd);
-      line-height: 3rem;
-      &.k-alt {
-        background-color: var(--bg-grid-row-even);
-      }
-    }
+  .k-grid-table {
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .k-grid-content {
+    overflow-y: auto;
     td {
       border-color: var(--border-primary);
       &:is(.time, .ip, .no) {
@@ -48,6 +47,38 @@
         justify-content: center;
         height: 100%;
       }
+    }
+  }
+  .k-master-row {
+    background-color: var(--bg-grid-row-odd);
+    line-height: 3rem;
+    &.k-alt {
+      background-color: var(--bg-grid-row-even);
+    }
+  }
+  .k-grid-norecords {
+    height: 15rem;
+  }
+}
+
+@include atRatio125 {
+  .alarmGrid {
+    .k-master-row {
+      line-height: 3.5rem;
+    }
+    .k-grid-norecords {
+      height: 16.9rem;
+    }
+  }
+}
+
+@include lowerHeightatRatio125 {
+  .alarmGrid {
+    .k-master-row {
+      line-height: 2.8rem;
+    }
+    .k-grid-norecords {
+      height: 13.7rem;
     }
   }
 }

@@ -10,7 +10,7 @@
   border: 1px solid var(--border-secondary);
   color: var(--font-header);
   font-size: $header-font-size;
-  line-height: $header-height - 0.1rem;
+  line-height: $header-height;
 }
 
 .logo {
@@ -35,4 +35,18 @@
 
 .mode__text {
   margin-left: $common-margin * 0.5;
+}
+
+@include atRatio125 {
+  .header {
+    height: 6.2rem;
+    line-height: 6.2rem;
+  }
+}
+
+@include lowerHeightatRatio125 {
+  .header {
+    height: 5.4rem;
+    line-height: 5.4rem;
+  }
 }

@@ -16,3 +16,15 @@
   color: var(--font-active);
   border-bottom: 3px solid var(--border-active);
 }
+
+@include atRatio125 {
+  .link {
+    height: 6.2rem;
+  }
+}
+
+@include lowerHeightatRatio125 {
+  .link {
+    height: 5.4rem;
+  }
+}

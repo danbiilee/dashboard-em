@@ -1,8 +1,11 @@
 @import "Styles/variables.scss";
+
 .wrapper {
   height: 100%;
+  min-height: 12rem;
   display: flex;
   justify-content: space-between;
+  min-height: 13rem;
   padding: 2rem 3rem;
   border: 1px solid var(--border-primary);
   background-color: var(--bg-server-memory-component);
@@ -81,11 +84,23 @@
   }
 }
 
-@include underDefaultHeight {
+@include lowerHeightAtRatio100 {
+  .image {
+    max-height: 5.7rem;
+  }
   .right_wrapper .total_count_wrapper .count_number {
     font-size: 2.4rem;
   }
   .title {
     font-size: 1.4rem;
+  }
+}
+
+@include lowerHeightatRatio125 {
+  .image {
+    max-height: 6.5rem;
+  }
+  .right_wrapper .total_count_wrapper .count_number {
+    font-size: 2.5rem;
   }
 }

@@ -1,8 +1,23 @@
+@import "Styles/variables.scss";
+
 .alarmGrid_wrapper {
-  max-height: 18rem;
+  height: 18rem;
   border-top: 1px solid var(--border-primary);
 }
+
 .severity_img {
   width: 1.3rem;
   height: 1.3rem;
+}
+
+@include atRatio125 {
+  .alarmGrid_wrapper {
+    height: 20rem;
+  }
+}
+
+@include lowerHeightatRatio125 {
+  .alarmGrid_wrapper {
+    height: 16.8rem;
+  }
 }

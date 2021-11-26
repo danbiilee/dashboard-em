@@ -13,8 +13,12 @@
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
   width: 59.5rem;
-  height: 78.8rem;
+  height: 80%;
+  max-height: 78.8rem;
+  min-height: 50rem;
   background-color: var(--bg-modal);
   border-radius: 6px;
   border: var(--border-modal-wrapper);
@@ -34,6 +38,7 @@
 
 .tree {
   overflow-y: auto;
+  flex: 1;
   height: 49rem;
   padding: $container-padding * 1.4 $container-padding * 1.8;
   border: 1px solid var(--border-modal);
