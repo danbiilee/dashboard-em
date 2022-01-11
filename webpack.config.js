@@ -7,9 +7,11 @@ const webpack = require("webpack");
 const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
 
-module.exports = {
+const isDevelopment = process.env.NODE_ENV !== "production";
+
+const config = {
   entry: "./src/index.js",
-  mode: "development",
+  mode: isDevelopment ? "development" : "production",
   devtool: false,
   module: {
     rules: [
@@ -52,7 +54,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
-    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new SourceMapDevToolPlugin(),
     new webpack.BannerPlugin({ banner: new Date().toLocaleDateString() }),
@@ -81,3 +82,9 @@ module.exports = {
     },
   },
 };
+
+if (isDevelopment && config.plugins) {
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+export default config;
