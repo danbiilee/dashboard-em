@@ -7,6 +7,8 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -92,6 +94,15 @@ const config = {
 if (isDevelopment && config.plugins) {
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new ReactRefreshWebpackPlugin());
+}
+
+if (!isDevelopment && config.plugins) {
+  config.plugins.push(
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      reportFilename: `report_${Date.now()}.html`,
+    })
+  );
 }
 
 module.exports = config;
