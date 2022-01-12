@@ -1,9 +1,9 @@
+const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { SourceMapDevToolPlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
 const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
@@ -11,9 +11,13 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 const config = {
-  entry: "./src/index.js",
   mode: isDevelopment ? "development" : "production",
-  devtool: false,
+  entry: "./src/index.js",
+  output: {
+    publicPath: "",
+    path: path.resolve(__dirname, "./dist"),
+    filename: "bundle.js",
+  },
   module: {
     rules: [
       {
@@ -44,11 +48,12 @@ const config = {
       },
     ],
   },
-  output: {
-    publicPath: "",
-    path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js",
+  resolve: {
+    alias: {
+      Styles: path.resolve(__dirname, "src/scss"),
+    },
   },
+  devtool: false,
   devServer: {
     contentBase: path.join(__dirname, "./public"),
     port: 3000,
@@ -82,11 +87,6 @@ const config = {
       NMS: JSON.stringify("nms"),
     }),
   ],
-  resolve: {
-    alias: {
-      Styles: path.resolve(__dirname, "src/scss"),
-    },
-  },
 };
 
 if (isDevelopment && config.plugins) {
