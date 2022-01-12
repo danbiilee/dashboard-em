@@ -14,17 +14,20 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 const config = {
   mode: isDevelopment ? "development" : "production",
-  entry: "./src/index.js",
+  entry: {
+    app: "./src/index.js",
+  },
   output: {
-    publicPath: "",
     path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js",
+    filename: isDevelopment ? "[name].js" : "[name].[contenthash].js",
+    assetModuleFilename: "assets/[hash][ext][query]",
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         loader: "babel-loader",
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"],
@@ -45,7 +48,7 @@ const config = {
         type: "asset/resource",
       },
       {
-        test: /\.(png)$/i,
+        test: /\.png$/i,
         type: "asset/resource",
       },
     ],
@@ -74,10 +77,6 @@ const config = {
     // new CopyPlugin({
     //   patterns: [
     //     {
-    //       from: "./src/assets/images",
-    //       to: "./assets/images",
-    //     },
-    //     {
     //       from: "./config",
     //       to: "./config",
     //     },
@@ -101,6 +100,7 @@ if (!isDevelopment && config.plugins) {
     new BundleAnalyzerPlugin({
       analyzerMode: "static",
       reportFilename: `report_${Date.now()}.html`,
+      openAnalyzer: false,
     })
   );
 }
