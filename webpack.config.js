@@ -6,6 +6,7 @@ const path = require("path");
 const webpack = require("webpack");
 const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -22,6 +23,11 @@ const config = {
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"],
           plugins: ["@babel/transform-runtime"],
+          env: {
+            development: {
+              plugins: [require.resolve("react-refresh/babel")],
+            },
+          },
         },
       },
       {
@@ -85,6 +91,7 @@ const config = {
 
 if (isDevelopment && config.plugins) {
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.plugins.push(new ReactRefreshWebpackPlugin());
 }
 
-export default config;
+module.exports = config;
