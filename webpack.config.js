@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { SourceMapDevToolPlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-const apiMocker = require("connect-api-mocker");
+// const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const BundleAnalyzerPlugin =
@@ -58,15 +58,12 @@ const config = {
       Styles: path.resolve(__dirname, "src/scss"),
     },
   },
-  devtool: false,
+  devtool: isDevelopment ? "inline-source-map" : false,
   devServer: {
-    contentBase: path.join(__dirname, "./public"),
     port: 3000,
-    inline: true,
-    hot: true,
-    before: (app) => {
-      app.use(apiMocker("/api", "/mocks"));
-    },
+    compress: true,
+    historyApiFallback: true,
+    static: { directory: path.join(__dirname, "public") },
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
