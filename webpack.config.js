@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { SourceMapDevToolPlugin } = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 // const apiMocker = require("connect-api-mocker");
 // const CopyPlugin = require("copy-webpack-plugin");
@@ -67,7 +66,6 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
-    new CleanWebpackPlugin(),
     new SourceMapDevToolPlugin(),
     new webpack.BannerPlugin({ banner: new Date().toLocaleDateString() }),
     new ESLintPlugin(),
