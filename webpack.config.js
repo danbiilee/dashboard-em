@@ -8,8 +8,11 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
+
+const banner = `/* Build Date :: ${new Date().toLocaleString()} */`;
 
 const config = {
   mode: isDevelopment ? "development" : "production",
@@ -90,6 +93,21 @@ const config = {
     //   ],
     // }),
   ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          format: {
+            preamble: banner,
+            comments: false,
+          },
+        },
+        extractComments: false,
+        exclude: /config\//,
+      }),
+    ],
+  },
 };
 
 if (isDevelopment && config.plugins) {
