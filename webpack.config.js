@@ -9,6 +9,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -82,7 +83,7 @@ const config = {
       NMS: JSON.stringify("nms"),
     }),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name]-[contenthash].css",
+      filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
     }),
     // new CopyPlugin({
     //   patterns: [
@@ -105,6 +106,16 @@ const config = {
         },
         extractComments: false,
         exclude: /config\//,
+      }),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
       }),
     ],
   },
