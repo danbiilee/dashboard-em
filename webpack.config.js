@@ -2,8 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-// const apiMocker = require("connect-api-mocker");
-// const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -90,14 +89,14 @@ const config = {
       filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
       ignoreOrder: true,
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       from: "./config",
-    //       to: "./config",
-    //     },
-    //   ],
-    // }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./public/favicon.ico",
+          to: "favicon.ico",
+        },
+      ],
+    }),
   ],
   optimization: {
     minimizer: [
