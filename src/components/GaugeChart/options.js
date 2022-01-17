@@ -228,7 +228,7 @@ export const defaultOptions = {
           return (
             `<div>` +
             `<div id="cpuValue" x="${unit[length]}">${this.y}%</div><br><br>` +
-            `<div id="cpuName"; x="${unit[length] - 1}";>CPU</div>` +
+            `<div id="cpuName" x="${unit[length] - 1}">CPU</div>` +
             `</div>`
           );
         },

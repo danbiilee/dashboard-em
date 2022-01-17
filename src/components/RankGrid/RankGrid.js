@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { orderBy } from "@progress/kendo-data-query";
-import { ProgressBar } from "@progress/kendo-react-progressbars";
-import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
+import { orderBy } from "@progress/kendo-data-query/dist/npm/array.operators";
+import { ProgressBar } from "@progress/kendo-react-progressbars/dist/npm/progressbar/ProgressBar";
+import { Grid } from "@progress/kendo-react-grid/dist/npm/Grid";
+import { GridColumn as Column } from "@progress/kendo-react-grid/dist/npm/GridColumn";
 import styles from "./RankGrid.module.scss";
 import "./RankGrid.scss";
 
