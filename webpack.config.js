@@ -66,7 +66,10 @@ const config = {
       Styles: path.resolve(__dirname, "src/scss"),
     },
   },
-  devtool: isDevelopment ? "inline-source-map" : false,
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   devServer: {
     port: 3000,
     compress: true,
@@ -118,6 +121,10 @@ const config = {
         },
       }),
     ],
+    splitChunks: {
+      minSize: 250000,
+      maxSize: 512000,
+    },
   },
 };
 

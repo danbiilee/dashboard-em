@@ -48,6 +48,7 @@
     "webpack-dev-server": "^4.7.3"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@progress/kendo-data-query": "^1.5.4",
     "@progress/kendo-drawing": "^1.10.1",
     "@progress/kendo-licensing": "^1.2.0",
