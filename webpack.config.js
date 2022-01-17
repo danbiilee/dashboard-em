@@ -70,6 +70,7 @@ const config = {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
   },
+  devtool: isDevelopment ? "eval-cheap-module-source-map" : false,
   devServer: {
     port: 3000,
     compress: true,
