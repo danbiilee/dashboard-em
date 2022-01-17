@@ -87,6 +87,7 @@ const config = {
     }),
     new MiniCssExtractPlugin({
       filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
+      ignoreOrder: true,
     }),
     // new CopyPlugin({
     //   patterns: [
