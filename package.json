@@ -54,17 +54,11 @@
     "@progress/kendo-licensing": "^1.2.0",
     "@progress/kendo-react-animation": "^4.5.0",
     "@progress/kendo-react-common": "^4.8.0",
-    "@progress/kendo-react-data-tools": "^4.5.0",
-    "@progress/kendo-react-dateinputs": "^4.7.0",
-    "@progress/kendo-react-dialogs": "^4.5.0",
     "@progress/kendo-react-dropdowns": "^4.5.0",
     "@progress/kendo-react-grid": "^4.5.0",
     "@progress/kendo-react-inputs": "^4.7.0",
     "@progress/kendo-react-intl": "^4.7.0",
     "@progress/kendo-react-progressbars": "^4.5.0",
-    "@progress/kendo-react-ripple": "^4.5.0",
-    "@progress/kendo-react-tooltip": "^4.7.0",
-    "@progress/kendo-react-treeview": "^4.5.0",
     "@progress/kendo-svg-icons": "^0.1.2",
     "@progress/kendo-theme-bootstrap": "^4.36.0",
     "@reduxjs/toolkit": "^1.5.1",
@@ -82,7 +76,6 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
-    "styled-components": "^5.2.3"
+    "redux-logger": "^3.0.6"
   }
 }
