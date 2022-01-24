@@ -41,7 +41,7 @@ const NMSPage = ({ onToggleModal, resources }) => {
             <Title name="구성현황" />
             <ConfigurationStatus />
           </div>
-          <div className={styles.side__container}>
+          <div className={styles.side__grid__container}>
             <div className={styles.title__container}>
               <Title name={`트래픽 사용률(${selectedData}) TOP5`} />
               <div className={`${styles.title__container__button} top5`}>

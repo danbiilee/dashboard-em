@@ -80,9 +80,9 @@ const GaugeChart = (props) => {
         containerProps={{
           style: {
             position: "absolute",
-            width: "63%",
-            height: "63%",
-            left: "19%",
+            width: "50%",
+            height: "65%",
+            left: "25.5%",
             top: "21%",
           },
         }}

@@ -175,7 +175,7 @@ export const defaultOptions = {
         to: 90,
         thickness: 15,
         outerRadius: "95%",
-        borderRadius: "1%",
+        borderRadius: "100%",
         color: {
           linearGradient: {
             x1: 0,
@@ -214,21 +214,22 @@ export const defaultOptions = {
       name: "CPU",
       data: [],
       dataLabels: {
-        style: {
-          width: "15rem",
-        },
         enabled: true,
         shadow: "none",
-        align: "center",
+        align: "left",
         borderColor: "transparent",
         y: -20,
         formatter: function () {
-          const unit = [25, 33, 38];
-          const length = String(this.y).length - 1;
+          let length = 88;
+          if (this.point.plotX > 100) {
+            length = 105;
+          }
           return (
             `<div>` +
-            `<div id="cpuValue" x="${unit[length]}">${this.y}%</div><br><br>` +
-            `<div id="cpuName"; x="${unit[length] - 1}";>CPU</div>` +
+            `<div id="cpuValue" x="${this.point.plotX - length}">${
+              this.y
+            }%</div><br><br>` +
+            `<div id="cpuName"; x="${this.point.plotX - length}";>CPU</div>` +
             `</div>`
           );
         },

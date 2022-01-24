@@ -1,7 +1,8 @@
 @import "Styles/variables.scss";
 
 // Common
-.side__container {
+.side__container,
+.side__grid__container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,9 @@
   &.nms__chart__container {
     flex-basis: inherit;
   }
+}
+.side__grid__container {
+  padding-bottom: $container-padding - 1.6rem;
 }
 .title__container {
   position: relative;

@@ -28,7 +28,7 @@ const SMSPage = () => {
             <Title name="구성현황" />
             <ConfigurationStatus />
           </div>
-          <div className={styles.side__container}>
+          <div className={styles.side__grid__container}>
             <Title name="파일시스템 사용률 TOP5" />
             <RankGrid
               data={gridData.Rank_file_data}
@@ -48,21 +48,21 @@ const SMSPage = () => {
           </div>
         </Top.Center>
         <Top.Side>
-          <div className={styles.side__container}>
+          <div className={styles.side__grid__container}>
             <Title name="서버 CPU 사용률 TOP5" />
             <RankGrid
               data={gridData.Rank_server_data}
               columns={gridData.serverColumns}
             />
           </div>
-          <div className={styles.side__container}>
+          <div className={styles.side__grid__container}>
             <Title name="서버 MEM 사용률 TOP5" />
             <RankGrid
               data={gridData.Rank_server_data}
               columns={gridData.serverColumns}
             />
           </div>
-          <div className={styles.side__container}>
+          <div className={styles.side__grid__container}>
             <Title name="서버 DISK I/O 사용률 TOP5" />
             <RankGrid
               data={gridData.Rank_server_data}

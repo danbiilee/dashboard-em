@@ -6,9 +6,9 @@ export const defaultSeriesOptions = {
 
 export const defaultOptions = {
   chart: {
-    type: "column",
+    type: "bar",
     backgroundColor: "transparent",
-    margin: [53, 8, 23, 13],
+    margin: [30, -10, 10, 45],
     style: {
       fontFamily: "KoPub Dotum",
     },
@@ -31,33 +31,41 @@ export const defaultOptions = {
       enabled: false,
     },
     min: 0,
-    max: 100,
+    max: 101,
     gridLineColor: "transparent",
   },
   xAxis: {
     labels: {
-      y: 15,
+      enabled: true,
+      x: -10,
+      y: 2,
+      useHTML: true,
       style: {
-        color: "",
+        marginLeft: "1.3rem",
+        fontSize: "1.0rem",
+        maxWidth: "3rem",
+        textOverflow: "ellipsis",
+        overflow: "hidden",
+        whiteSpace: "nowrap",
       },
     },
-    categories: [],
   },
   legend: {
     enabled: false,
   },
   plotOptions: {
     series: {
-      pointWidth: 15,
+      pointWidth: 9,
       dataLabels: {
         enabled: true,
+        y: -3,
         format: "<b>{point.y}%</b>",
         crop: false,
         overflow: "none",
-        y: 3,
         style: {
           textShadow: false,
           textOutline: 0,
+          fontSize: "1.1rem",
         },
       },
     },

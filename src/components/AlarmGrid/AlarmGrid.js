@@ -52,8 +52,6 @@ const AlarmGrid = (props) => {
         onSortChange={(e) => {
           setSort(e.sort);
         }}
-        reorderable
-        resizable
       >
         {responseData.columns.map((d, i) => {
           return (

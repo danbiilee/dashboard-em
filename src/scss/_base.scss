@@ -37,8 +37,14 @@ div#root {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-width: 1200px;
+  min-width: 1900px;
   color: var(--font-contents);
+  @media only screen and (-webkit-device-pixel-ratio: 1.25) {
+    min-width: 1520px;
+  }
+  @media only screen and (-moz-device-pixel-ratio: 1.25) {
+    min-width: 1520px;
+  }
 }
 ::-webkit-scrollbar {
   width: 6px;
