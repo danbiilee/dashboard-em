@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTheme, useThemeToggle } from "../../context/Theme";
-import { Switch } from "@progress/kendo-react-inputs";
+import { Switch } from "@progress/kendo-react-inputs/dist/npm/switch/Switch";
 
 const ThemeButton = () => {
   const themeMode = useTheme();

@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "../../context/Theme";
+import loadable from "@loadable/component";
 import Header from "../../containers/Header";
-import SMS from "../../pages/SMS";
-import NMS from "../../pages/NMS";
 import SelectResourceModal from "../SelectResource";
 import { useToggle } from "../../hooks/useToggle";
 import { resourceData } from "../../pages/NMS/TestData";
+
+const SMS = loadable(() =>
+  import(/* webpackChunkName: "sms" */ "../../pages/SMS")
+);
+const NMS = loadable(() =>
+  import(/* webpackChunkName: "nms" */ "../../pages/NMS")
+);
 
 const AppClient = () => {
   const [showModal, onToggleModal] = useToggle(false);

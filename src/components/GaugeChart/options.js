@@ -229,7 +229,7 @@ export const defaultOptions = {
             `<div id="cpuValue" x="${this.point.plotX - length}">${
               this.y
             }%</div><br><br>` +
-            `<div id="cpuName"; x="${this.point.plotX - length}";>CPU</div>` +
+            `<div id="cpuName" x="${this.point.plotX - length}">CPU</div>` +
             `</div>`
           );
         },

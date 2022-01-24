@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { orderBy } from "@progress/kendo-data-query";
+import { orderBy } from "@progress/kendo-data-query/dist/npm/array.operators";
+import { Grid } from "@progress/kendo-react-grid/dist/npm/Grid";
+import { GridColumn as Column } from "@progress/kendo-react-grid/dist/npm/GridColumn";
 import styles from "./AlarmGrid.module.scss";
 import "./AlarmGrid.scss";
 import PropTypes from "prop-types";
-import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
 import Minor from "../../assets/images/event-minor.png";
 import Major from "../../assets/images/event-major.png";
 import Critical from "../../assets/images/event-critical.png";

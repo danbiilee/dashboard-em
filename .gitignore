@@ -3,3 +3,7 @@ node_modules
 
 # setting
 .vscode
+
+# production
+/dist
+dist.zip

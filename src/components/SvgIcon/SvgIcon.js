@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SvgIcon as KendoSvgIcon } from "@progress/kendo-react-common";
+import { SvgIcon as KendoSvgIcon } from "@progress/kendo-react-common/dist/npm/icons/SvgIcon";
 
 const SvgIcon = ({ icon }) => <KendoSvgIcon icon={icon} />;
 
