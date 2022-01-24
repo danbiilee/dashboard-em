@@ -17,12 +17,29 @@ const banner = `/* Build Date :: ${new Date().toLocaleString()} */`;
 const config = {
   mode: isDevelopment ? "development" : "production",
   entry: {
-    app: "./src/index.js",
+    app: { import: "./src/index.js", dependOn: "react-vendors" },
+    "react-vendors": ["react", "react-dom", "react-router-dom", "prop-types"],
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: isDevelopment ? "[name].js" : "[name].[contenthash].js",
-    assetModuleFilename: "assets/[hash][ext][query]",
+    filename: (pathData) => {
+      if (isDevelopment) {
+        return "[name].js";
+      }
+      const { name } = pathData.chunk;
+      return name !== "app" ? "vendors/[name].js" : "[name].[contenthash:8].js";
+    },
+    chunkFilename: (pathData) => {
+      if (isDevelopment) {
+        return "[name].js";
+      }
+      if (pathData.chunk.name === "sms" || pathData.chunk.name === "nms") {
+        return "[name].[contenthash:8].js";
+      } else {
+        return "vendors/[name].js";
+      }
+    },
+    assetModuleFilename: "assets/[contenthash:8][ext][query]",
     clean: true,
   },
   module: {
@@ -86,7 +103,7 @@ const config = {
       NMS: JSON.stringify("nms"),
     }),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
+      filename: isDevelopment ? "[name].css" : "[name].[contenthash:8].css",
       ignoreOrder: true,
     }),
     new CopyPlugin({
@@ -123,6 +140,7 @@ const config = {
       }),
     ],
     splitChunks: {
+      name: "vendors",
       minSize: 250000,
       maxSize: 512000,
     },

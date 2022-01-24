@@ -7,8 +7,12 @@ import SelectResourceModal from "../SelectResource";
 import { useToggle } from "../../hooks/useToggle";
 import { resourceData } from "../../pages/NMS/TestData";
 
-const SMS = loadable(() => import("../../pages/SMS"));
-const NMS = loadable(() => import("../../pages/NMS"));
+const SMS = loadable(() =>
+  import(/* webpackChunkName: "sms" */ "../../pages/SMS")
+);
+const NMS = loadable(() =>
+  import(/* webpackChunkName: "nms" */ "../../pages/NMS")
+);
 
 const AppClient = () => {
   const [showModal, onToggleModal] = useToggle(false);
