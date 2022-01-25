@@ -95,7 +95,6 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
-    new webpack.BannerPlugin({ banner: new Date().toLocaleDateString() }),
     new ESLintPlugin(),
     new webpack.DefinePlugin({
       IMAGE_PATH: JSON.stringify("./assets/images"),
