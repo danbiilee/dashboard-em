@@ -4,6 +4,7 @@ import { produce } from "immer";
 export const useResourceTree = (initialState) => {
   const [state, setState] = useState(initialState);
 
+  // 하위 트리 열고 닫기
   const handleClickExpander = useCallback(({ target }, expandable) => {
     if (!expandable) {
       return;
@@ -31,6 +32,7 @@ export const useResourceTree = (initialState) => {
     treeItem.classList.toggle("tree__item--expanded");
   }, []);
 
+  // 리소스 체크하기
   const handleChangeChecked = useCallback(
     ({ target }) => {
       const { name, checked } = target;
