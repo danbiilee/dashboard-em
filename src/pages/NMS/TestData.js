@@ -191,7 +191,7 @@ export const gridData = {
 export const chartData = {
   trafficData: [
     {
-      RESOURCE_ID: 1,
+      RESOURCE_ID: "test001",
       RESOURCE_NAME: "L4 Switch #1",
       LIST: [
         {
@@ -251,7 +251,7 @@ export const chartData = {
       ],
     },
     {
-      RESOURCE_ID: 2,
+      RESOURCE_ID: "test002",
       RESOURCE_NAME: "L4 Switch #2",
       LIST: [
         {
@@ -311,7 +311,7 @@ export const chartData = {
       ],
     },
     {
-      RESOURCE_ID: 3,
+      RESOURCE_ID: "test003",
       RESOURCE_NAME: "L4 Switch #3",
       LIST: [
         {
@@ -371,7 +371,7 @@ export const chartData = {
       ],
     },
     {
-      RESOURCE_ID: 4,
+      RESOURCE_ID: "test00001",
       RESOURCE_NAME: "L4 Switch #4",
       LIST: [
         {
@@ -433,239 +433,75 @@ export const chartData = {
   ],
 };
 
-// export const resourceData = {
-//   ROOT: {
-//     totalDepth: 4, // 마지막 뎁스 + 1
-//     children: {
-//       TEST: {
-//         id: 1000,
-//         depth: 0,
-//         checked: false,
-//         expandable: true,
-//         expanded: true,
-//         childrenCnt: 11,
-//         checkedChildrenCnt: 3,
-//         children: {
-//           "S4048-BB": {
-//             id: 1001,
-//             depth: 1,
-//             checked: false,
-//             expandable: true,
-//             expanded: true,
-//             childrenCnt: 6,
-//             checkedChildrenCnt: 2,
-//             children: {
-//               "test-001": {
-//                 id: 1,
-//                 depth: 2,
-//                 checked: false,
-//                 expandable: true,
-//                 expanded: true,
-//                 childrenCnt: 4,
-//                 checkedChildrenCnt: 0,
-//                 children: {
-//                   "depth-4-test-001": {
-//                     id: 300,
-//                     depth: 3,
-//                     checked: false,
-//                     expandable: true,
-//                     expanded: true,
-//                     childrenCnt: 3,
-//                     checkedChildrenCnt: 0,
-//                     children: {
-//                       "depth-5-test-0001": {
-//                         id: 401,
-//                         depth: 4,
-//                         checked: false,
-//                         expandable: false,
-//                         expanded: false,
-//                       },
-//                       "depth-5-test-0002": {
-//                         id: 402,
-//                         depth: 4,
-//                         checked: false,
-//                         expandable: false,
-//                         expanded: false,
-//                       },
-//                       "depth-5-test-0003": {
-//                         id: 403,
-//                         depth: 4,
-//                         checked: false,
-//                         expandable: false,
-//                         expanded: false,
-//                       },
-//                     },
-//                   },
-//                   "depth-4-test-002": {
-//                     id: 301,
-//                     depth: 3,
-//                     checked: false,
-//                     expandable: false,
-//                     expanded: false,
-//                   },
-//                 },
-//               },
-//               "test-002": {
-//                 id: 2,
-//                 depth: 2,
-//                 checked: true,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//               "test-003": {
-//                 id: 3,
-//                 depth: 2,
-//                 checked: true,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//             },
-//           },
-//           "cisco-2611-44": {
-//             id: 1002,
-//             depth: 1,
-//             checked: false,
-//             expandable: true,
-//             expanded: true,
-//             childrenCnt: 5,
-//             checkedChildrenCnt: 1,
-//             children: {
-//               "test-00-001": {
-//                 id: 4,
-//                 depth: 2,
-//                 checked: true,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//               "test-00-002": {
-//                 id: 5,
-//                 depth: 2,
-//                 checked: false,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//               "test-00-003": {
-//                 id: 6,
-//                 depth: 2,
-//                 checked: false,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//               "test-00-004": {
-//                 id: 7,
-//                 depth: 2,
-//                 checked: false,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//               "test-00-005": {
-//                 id: 8,
-//                 depth: 2,
-//                 checked: false,
-//                 expandable: false,
-//                 expanded: false,
-//               },
-//             },
-//           },
-//         },
-//       },
-//     },
-//   },
-// };
-
-export const resourceData = {
-  ROOT: {
-    totalDepth: 3,
-    children: {
-      TEST: {
-        id: 1000,
-        depth: 0,
-        checked: false,
-        expandable: true,
-        expanded: true,
-        childrenCnt: 8,
-        checkedChildrenCnt: 4,
-        children: {
-          "S4048-BB": {
-            id: 1001,
-            depth: 1,
-            checked: true,
-            expandable: true,
-            expanded: true,
-            childrenCnt: 3,
-            checkedChildrenCnt: 3,
-            children: {
-              "test-001": {
-                id: 1,
-                depth: 2,
-                checked: true,
-                expandable: false,
-                expanded: false,
-              },
-              "test-002": {
-                id: 2,
-                depth: 2,
-                checked: true,
-                expandable: false,
-                expanded: false,
-              },
-              "test-003": {
-                id: 3,
-                depth: 2,
-                checked: true,
-                expandable: false,
-                expanded: false,
-              },
-            },
+export const resourceData = [
+  {
+    ID: "TEST",
+    RESOURCE_NAME: "Network Group",
+    LIST: [
+      {
+        ID: "S4048BB",
+        RESOURCE_NAME: "S4048-BB",
+        // LIST: [],
+        LIST: [
+          {
+            ID: "test001",
+            RESOURCE_NAME: "test-001",
+            LIST: [
+              // {
+              //   ID: 'test001aaa',
+              //   RESOURCE_NAME: "test-001--aaa",
+              //   LIST: [],
+              // },
+              // {
+              //   ID: 'test001bbb',
+              //   RESOURCE_NAME: "test-001--bbb",
+              //   LIST: [],
+              // },
+            ],
           },
-          "cisco-2611-44": {
-            id: 1002,
-            depth: 1,
-            checked: false,
-            expandable: true,
-            expanded: true,
-            childrenCnt: 5,
-            checkedChildrenCnt: 1,
-            children: {
-              "test-00-001": {
-                id: 4,
-                depth: 2,
-                checked: true,
-                expandable: false,
-                expanded: false,
-              },
-              "test-00-002": {
-                id: 5,
-                depth: 2,
-                checked: false,
-                expandable: false,
-                expanded: false,
-              },
-              "test-00-003": {
-                id: 6,
-                depth: 2,
-                checked: false,
-                expandable: false,
-                expanded: false,
-              },
-              "test-00-004": {
-                id: 7,
-                depth: 2,
-                checked: false,
-                expandable: false,
-                expanded: false,
-              },
-              "test-00-005": {
-                id: 8,
-                depth: 2,
-                checked: false,
-                expandable: false,
-                expanded: false,
-              },
-            },
+          {
+            ID: "test002",
+            RESOURCE_NAME: "test-002",
+            LIST: [],
           },
-        },
+          {
+            ID: "test003",
+            RESOURCE_NAME: "test-003",
+            LIST: [],
+          },
+        ],
       },
-    },
+      {
+        ID: "cisco261144",
+        RESOURCE_NAME: "cisco-2611-44",
+        LIST: [
+          {
+            ID: "test00001",
+            RESOURCE_NAME: "test-00-001",
+            LIST: [],
+          },
+          {
+            ID: "test00002",
+            RESOURCE_NAME: "test-00-002",
+            LIST: [],
+          },
+          {
+            ID: "test00003",
+            RESOURCE_NAME: "test-00-003",
+            LIST: [],
+          },
+          {
+            ID: "test00004",
+            RESOURCE_NAME: "test-00-004",
+            LIST: [],
+          },
+          {
+            ID: "test00005",
+            RESOURCE_NAME: "test-00-005",
+            LIST: [],
+          },
+        ],
+      },
+    ],
   },
-};
+];
