@@ -10,10 +10,10 @@ export const THEME_DARK = "dark";
 export const RESOURCE_KEY_ID = "ID";
 export const RESOURCE_KEY_NM = "RESOURCE_NAME";
 export const RESOURCE_KEY_LIST = "LIST";
-export const RESOURCE_CHECKED_KEYS = [
-  "test-001--aaa",
-  "test-002",
-  "test-003",
-  "test-00-001",
-  "test-00-003",
-];
+export const RESOURCE_CHECKED_IDS = [
+  "test001aaa",
+  "test001",
+  "test003",
+  "test00001",
+  "test00003",
+]; // 임시
