@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import { ThemeProvider } from "../../context/Theme";
 import loadable from "@loadable/component";
 import Header from "../../containers/Header";
 import SelectResourceModal from "../SelectResource";
@@ -22,7 +21,7 @@ const AppClient = () => {
   }); // 임시
 
   return (
-    <ThemeProvider>
+    <>
       <Header />
       <Switch>
         <Route exact path="/" component={SMS} />
@@ -33,14 +32,7 @@ const AppClient = () => {
           )}
         />
       </Switch>
-      {showModal && (
-        <SelectResourceModal
-          onToggleModal={onToggleModal}
-          resources={resources}
-          setResources={setResources}
-        />
-      )}
-    </ThemeProvider>
+    </>
   );
 };
 
