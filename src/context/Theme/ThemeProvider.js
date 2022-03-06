@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useLocalStorage } from "../../hooks";
-
-const LOCAL_STORAGE_THEME = "ems8-dashboard-theme";
-const THEME_TOGGLE_CLASS = "theme-dark";
-const THEME_LIGHT = "light";
-const THEME_DARK = "dark";
+import {
+  LOCAL_STORAGE_THEME,
+  THEME_TOGGLE_CLASS,
+  THEME_LIGHT,
+  THEME_DARK,
+} from "../../utils/constants";
 
 const ThemeContext = createContext();
 const ThemeUpdateContext = createContext();
