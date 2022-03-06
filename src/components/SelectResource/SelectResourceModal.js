@@ -12,15 +12,18 @@ import { useSelectedResources } from "../../hooks";
 import CheckboxTree from "../CheckboxTree";
 import SvgIcon from "../SvgIcon";
 import Button from "../Button";
+import { useResource, useSetResource } from "../../context/Resource";
 
-const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
-  const pathType = useLocation().pathname === "/" ? "sms" : "nms";
+const SelectResourceModal = ({ onToggleModal }) => {
+  const resources = useResource();
+  const setResources = useSetResource();
+
+  const type = useLocation().pathname === "/" ? "sms" : "nms";
   const [root, handleClickExpander, handleChangeChecked] = useResourceTree(
-    resources[pathType].ROOT
+    resources[type].ROOT
   );
-  const { children: rootChildren } = root;
 
-  const { selectedResources } = useSelectedResources(rootChildren);
+  const { selectedResources } = useSelectedResources(root.children);
   const isValid = selectedResources.length > 0 && selectedResources.length < 5;
 
   // 모달 닫기
@@ -44,7 +47,7 @@ const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
 
     setResources((resources) => ({
       ...resources,
-      [pathType]: { ROOT: root },
+      [type]: { ROOT: root },
     }));
 
     onToggleModal();
@@ -65,7 +68,7 @@ const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
         </div>
         <div className={styles.tree}>
           <CheckboxTree
-            list={rootChildren}
+            list={root.children}
             handleClick={handleClickExpander}
             handleChange={handleChangeChecked}
           />
@@ -117,8 +120,6 @@ const SelectResourceModal = ({ onToggleModal, resources, setResources }) => {
 
 SelectResourceModal.propTypes = {
   onToggleModal: PropTypes.func,
-  resources: PropTypes.object,
-  setResources: PropTypes.func,
 };
 
 export default React.memo(SelectResourceModal);

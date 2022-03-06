@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import loadable from "@loadable/component";
 import Header from "../../containers/Header";
 import SelectResourceModal from "../SelectResource";
 import { useToggle } from "../../hooks/useToggle";
-import { resourceData } from "../../pages/NMS/TestData";
+import { useResource } from "../../context/Resource";
 
 const SMS = loadable(() =>
   import(/* webpackChunkName: "sms" */ "../../pages/SMS")
@@ -15,10 +15,7 @@ const NMS = loadable(() =>
 
 const AppClient = () => {
   const [showModal, onToggleModal] = useToggle(false);
-  const [resources, setResources] = useState({
-    sms: [],
-    nms: resourceData,
-  }); // 임시
+  const resources = useResource();
 
   return (
     <>
@@ -28,10 +25,11 @@ const AppClient = () => {
         <Route
           path="/nms"
           render={() => (
-            <NMS onToggleModal={onToggleModal} resources={resources} />
+            <NMS onToggleModal={onToggleModal} resources={resources?.nms} />
           )}
         />
       </Switch>
+      {showModal && <SelectResourceModal onToggleModal={onToggleModal} />}
     </>
   );
 };
