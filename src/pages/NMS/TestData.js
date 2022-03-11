@@ -441,23 +441,11 @@ export const resourceData = [
       {
         ID: "S4048BB",
         RESOURCE_NAME: "S4048-BB",
-        // LIST: [],
         LIST: [
           {
             ID: "test001",
             RESOURCE_NAME: "test-001",
-            LIST: [
-              // {
-              //   ID: 'test001aaa',
-              //   RESOURCE_NAME: "test-001--aaa",
-              //   LIST: [],
-              // },
-              // {
-              //   ID: 'test001bbb',
-              //   RESOURCE_NAME: "test-001--bbb",
-              //   LIST: [],
-              // },
-            ],
+            LIST: [],
           },
           {
             ID: "test002",
