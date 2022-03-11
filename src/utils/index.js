@@ -62,28 +62,27 @@ export const convertArrayToTreeObject = (selectedIds, payload) => {
         makeObject(depth + 1, item);
       }
 
-      tmp[depth][v[RESOURCE_KEY_NM]].children = tmp[depth + 1];
-      tmp[depth][v[RESOURCE_KEY_NM]].childrenCnt = tmpCnt[depth + 1];
-      tmp[depth][v[RESOURCE_KEY_NM]].checkedChildrenCnt =
-        tmpCheckedCnt[depth + 1];
+      // 체크된 자식들을 기준으로 부모의 cnt, checked 값 설정
+      const curr = tmp[depth][v[RESOURCE_KEY_NM]];
+      curr.children = tmp[depth + 1];
+      curr.childrenCnt = tmpCnt[depth + 1];
+      curr.checkedChildrenCnt = tmpCheckedCnt[depth + 1];
+      curr.checked = curr.childrenCnt === curr.checkedChildrenCnt;
 
-      tmpCnt[depth] += tmpCnt[depth + 1]; // 누적
-      if (depth > 0) {
-        tmpCheckedCnt[depth] += tmpCheckedCnt[depth + 1];
-
-        // init
-        tmp[depth + 1] = {};
-        tmpCnt[depth + 1] = 0;
-        tmpCheckedCnt[depth + 1] = 0;
-      }
-
+      // 누적 & 초기화
+      tmpCnt[depth] += tmpCnt[depth + 1];
       if (depth === 0) {
-        tmp[depth][v[RESOURCE_KEY_NM]].childrenCnt = tmpCnt[depth];
-        tmp[depth][v[RESOURCE_KEY_NM]].checkedChildrenCnt =
-          tmpCheckedCnt[depth + 1];
-
+        // 최상단 부모
+        curr.childrenCnt = tmpCnt[depth];
+        curr.checkedChildrenCnt = tmpCheckedCnt[depth + 1];
         result.ROOT.children = tmp[depth];
         result.ROOT.totalDepth = tmp.length;
+      } else {
+        // 자식들
+        tmpCheckedCnt[depth] += tmpCheckedCnt[depth + 1];
+        tmp[depth + 1] = {}; // init
+        tmpCnt[depth + 1] = 0;
+        tmpCheckedCnt[depth + 1] = 0;
       }
     }
   }
