@@ -2,7 +2,6 @@ import {
   RESOURCE_KEY_ID,
   RESOURCE_KEY_NM,
   RESOURCE_KEY_LIST,
-  RESOURCE_CHECKED_IDS,
 } from "./constants";
 
 export const getCSSValue = (prop) => {
@@ -12,7 +11,7 @@ export const getCSSValue = (prop) => {
   return value.replaceAll(" ", "");
 };
 
-export const convertArrayToTreeObject = (payload) => {
+export const convertArrayToTreeObject = (selectedIds, payload) => {
   const result = {
     ROOT: {
       totalDepth: 0,
@@ -28,11 +27,10 @@ export const convertArrayToTreeObject = (payload) => {
   function makeObject(depth, v) {
     if (bool) {
       let checked = false;
-      if (RESOURCE_CHECKED_IDS.includes(v[RESOURCE_KEY_ID])) {
+      if (selectedIds.includes(v[RESOURCE_KEY_ID])) {
         checked = true;
         tmpCheckedCnt[depth] += 1;
       }
-
       tmpCnt[depth] += 1;
       tmp[depth][v[RESOURCE_KEY_NM]] = {
         id: v[RESOURCE_KEY_ID],

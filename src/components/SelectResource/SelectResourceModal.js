@@ -7,16 +7,18 @@ import {
   checkOutlineIcon,
   xIcon,
 } from "@progress/kendo-svg-icons";
-import { useResourceTree } from "../../hooks";
+import { useLocalStorage, useResourceTree } from "../../hooks";
 import { useSelectedResources } from "../../hooks";
 import CheckboxTree from "../CheckboxTree";
 import SvgIcon from "../SvgIcon";
 import Button from "../Button";
 import { useResource, useSetResource } from "../../context/Resource";
+import { LOCAL_STORAGE_RESOURCE } from "../../utils/constants";
 
 const SelectResourceModal = ({ onToggleModal }) => {
   const resources = useResource();
   const setResources = useSetResource();
+  const { storedStorage, setStorage } = useLocalStorage(LOCAL_STORAGE_RESOURCE);
 
   const type = useLocation().pathname === "/" ? "sms" : "nms";
   const [root, handleClickExpander, handleChangeChecked] = useResourceTree(
@@ -49,6 +51,12 @@ const SelectResourceModal = ({ onToggleModal }) => {
       ...resources,
       [type]: { ROOT: root },
     }));
+
+    // Set localstroage
+    setStorage({
+      ...storedStorage,
+      [type]: selectedResources.map((resource) => resource.id),
+    });
 
     onToggleModal();
   };

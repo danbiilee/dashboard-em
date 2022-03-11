@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Main from "../../containers/Main";
 import Top from "../../containers/Main/Top";
@@ -11,19 +11,28 @@ import TrafficChart from "../../components/TrafficChart";
 import RTXButtons from "../../components/RTXButtons";
 import AlarmStatus from "../../components/AlarmStatus";
 import ConfigurationStatus from "../../components/ConfigurationStatus";
-import { useSelectedResources } from "../../hooks";
 import Button from "../../components/Button";
 import Topology from "../../components/Topology/Topology";
+import { LOCAL_STORAGE_RESOURCE } from "../../utils/constants";
 
 const NMSPage = ({ onToggleModal, resources }) => {
   const [type, setType] = useState("RX"); // 좌: 트래픽 사용률 TOP5
 
   // 우: 트래픽 현황
-  const { selectedResources } = useSelectedResources(resources.ROOT.children);
-  const resourceIds = selectedResources.map((resource) => resource.id);
-  const selectedTrafficCharts = chartData.trafficData.filter((item) =>
-    resourceIds.includes(item.RESOURCE_ID)
-  ); // 바꾸기 -> resourceIds를 파라미터로 차트 데이터 refetch!
+  const resourceIds = JSON.parse(
+    window.localStorage.getItem(LOCAL_STORAGE_RESOURCE)
+  ).nms;
+  const [trafficCharts, setTrafficCharts] = useState([]);
+
+  useEffect(() => {
+    // 바꾸기 -> resourceIds를 파라미터로 차트 데이터 refetch
+    setTrafficCharts(
+      chartData.trafficData.filter((item) =>
+        resourceIds.includes(item.RESOURCE_ID)
+      )
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resources]);
 
   return (
     <Main>
@@ -73,9 +82,10 @@ const NMSPage = ({ onToggleModal, resources }) => {
               </div>
             </div>
             <div className={styles.nms__border__container}>
-              {selectedTrafficCharts.map((group) => (
-                <TrafficChart key={group.RESOURCE_ID} data={group} />
-              ))}
+              {trafficCharts.length &&
+                trafficCharts.map((group) => (
+                  <TrafficChart key={group.RESOURCE_ID} data={group} />
+                ))}
             </div>
           </div>
         </Top.Side>
